@@ -2,6 +2,9 @@
 
 公開網址：https://avrilchenedu.github.io/interference-diffraction-textbook/
 
+專案報告（Word）：https://avrilchenedu.github.io/interference-diffraction-textbook/report/interference-diffraction-project-report.docx
+（儲存庫內位置：[`report/interference-diffraction-project-report.docx`](report/interference-diffraction-project-report.docx)，由 `tools/build_report.py` 依網站內容產生）
+
 依 10 份教材文件（01–08、10）製作的線上教科書。同一個網站提供兩種模式，由頂端選單切換。
 
 ## 教科書模式（學生）

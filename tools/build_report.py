@@ -132,9 +132,44 @@ def block(b, lvl):
         L.append(f'![{esc(b["cells"][0]).replace(chr(10), " ")}]({b["src"]}){{width=2.6in}}')
         L.append('')
         tbl(['欄位', '內容'], [[h, c] for h, c in zip(b['head'], b['cells'])])
+    elif t == 'chapters':
+        tbl(['節次', '知識節點', '核心知識'], [[c['label'], c['name'], c['text']] for c in b['items']])
+    elif t == 'doclist':
+        tbl(['編號', '文件', '檔名'], [[d['code'], d['name'], d['file']] for d in b['items']])
+    elif t == 'reflist':
+        tbl(['項目', '內容', '網址'], [[r['label'], r['text'], '\n'.join(r.get('links') or [])] for r in b['rows']])
+    elif t == 'docraw':
+        for it in b['items']:
+            raw_item(it)
     elif t == 'credits':
         tbl(['圖檔', '用途（07A）', '作者／授權', '來源頁'],
             [[m['file'].split('/')[-1], m['text'], ('網路替代圖：' + m['attrib']) if m.get('attrib') else m['credit'], m['link']] for m in b['items']])
+
+
+def raw_cell(c):
+    out = []
+    for it in c:
+        if 'table' in it:
+            for row in it['table']:
+                out.append(' / '.join(raw_cell(x) for x in row))
+        elif it.get('text'):
+            out.append(it['text'])
+    return '\n'.join(out)
+
+
+def raw_item(it):
+    if 'table' in it:
+        rows_ = [[raw_cell(c) for c in r] for r in it['table']]
+        n = max(len(r) for r in rows_)
+        rows_ = [r + [''] * (n - len(r)) for r in rows_]
+        L.append('| ' + ' | '.join([' '] * n) + ' |')
+        L.append('|' + '---|' * n)
+        for r in rows_:
+            L.append('| ' + ' | '.join(cell(c) for c in r) + ' |')
+        L.append('')
+    elif it.get('text'):
+        para(it['text'])
+
 
 def page(pid, lvl=2):
     p = PAGES[pid]
@@ -183,7 +218,7 @@ def deck(pid):
 
 # ------------------------------------------------------------------ front
 L += ['---', 'title: 「干涉與繞射」教科書網站　專案報告',
-      'subtitle: 四大內容架構整理（教材文本／學習單／AI 指引；試題評量另案）　v3.0',
+      'subtitle: 四大內容架構整理（教材文本／學習單／AI 指引／試題評量細目表）　v4.0',
       'date: 2026-11-27', '---', '']
 
 L += ['# 第一章　專案概述', '',
@@ -194,10 +229,16 @@ L += ['# 第一章　專案概述', '',
       '| 欄目標題 | 只有導覽與欄目標題（例如「學習重點」「觀念澄清」「生活中的物理」）為編排用的標籤，不屬於教材內容。 |',
       '| 適用年級 | 高中版（原文件：高中一年級必修物理）。 |',
       '| 缺漏處理 | 原文件沒有的內容一律標示「⚠ 待補」，不自行補寫。 |',
-      '| 試題評量 | 本次不做，另有檔案處理；網站保留入口位置。 |',
+      '| 試題評量 | 試題本身不在原始文件中，另行提供；網站與本報告收錄 06 評量雙向細目表。 |',
       '| AI 指引 | 以原文件中的 AI 規範原句彙整為「AI 提問守則」，每句標注出處，不另寫範例。 |',
       '| 圖片 | 原文件列出但未附檔的圖，改用 Wikimedia Commons 上內容相符的開放授權圖片，於圖下標注「網路替代圖」、作者、授權與來源頁。 |',
       '| 互動模擬 | 07A 列出的 4 個模擬檔案未附，網站自行製作 5 個互動模擬（波的疊加依 07B 需求腳本規格）；第 1 節概念比較圖改為互動模擬。模擬介面上的說明文字取自原文件。 |',
+      '| 完整性 | 10 份原始文件的每一行都出現在網站上（含「原始文件全文」頁），並以核對程式檢查。 |',
+      '', '## 公開網址', '',
+      '| 項目 | 網址 |', '|---|---|',
+      '| 教科書網站 | https://avrilchenedu.github.io/interference-diffraction-textbook/ |',
+      '| GitHub 儲存庫 | https://github.com/avrilchenedu/interference-diffraction-textbook |',
+      '| 本報告（Word） | https://avrilchenedu.github.io/interference-diffraction-textbook/report/interference-diffraction-project-report.docx |',
       '', '## 網站架構：一個網站、兩種模式', '',
       '教科書模式與教師授課模式放在同一個網站中，以頂端選單切換，由教師自行選擇。', '',
       '| 模式 | 頁面 |', '|---|---|',
@@ -211,7 +252,7 @@ L += ['# 第二章　來源文件與四大內容對應', '',
       f'| 03 | {SRC["03"]} | 學習單第 2 節（學生版）；教師版參考答案與引導 |',
       f'| 04 | {SRC["04"]} | 教材文本：延伸閱讀 |',
       f'| 05 | {SRC["05"]} | 學習單教師用部分：核心教學題目卡 |',
-      f'| 06 | {SRC["06"]} | 試題評量（本次不做）；AI 提問守則一條 |',
+      f'| 06 | {SRC["06"]} | 試題評量：雙向細目表（試題本身另行提供）；AI 提問守則一條 |',
       f'| 07A | {SRC["07A"]} | 教材文本：圖片與模擬、生活中的物理、圖片授權 |',
       f'| 07B | {SRC["07B"]} | 教師資源：波的疊加需求腳本 |',
       f'| 08 | {SRC["08"]} | AI 指引；教師資源：數位教材整合規劃 |',
@@ -225,7 +266,8 @@ for pid in ('ws1', 'ws2', 'ws3'):
     page(pid)
 L += ['# 第五章　AI 指引：AI 提問守則', '']
 page('ai')
-L += ['# 第六章　試題評量', '', '本次不做，另有檔案處理。網站在每節末與教師授課模式保留「試題評量」入口。', '']
+L += ['# 第六章　試題評量', '', '試題本身不在 10 份原始文件中，將另行提供。以下為 06 評量雙向細目表的完整內容，網站放在教師授課模式的「試題評量」頁。', '']
+page('t_exam')
 L += ['# 第七章　教師授課模式', '', '教師授課模式以「上課簡報」為主：每節依 02 教案的時間段落分成數張投影片，每張投影片列出教師提問、對應的課本段落、可點選的互動元件或圖片，以及用來解釋的概念；教師備註可隨時開關。以下先列三節上課簡報，再列教案與資料頁。', '']
 for pid in ('d1', 'd2', 'd3'):
     deck(pid)
@@ -235,7 +277,11 @@ L += ['# 第八章　素材與數位教材規劃', '']
 for pid in ('t_media', 't_07b', 't_08', 'credits'):
     page(pid)
 
-L += ['# 第九章　待補與待確認事項', '',
+L += ['# 第九章　原始文件全文', '', '網站教師授課模式的「原始文件全文」區完整呈現 10 份文件（含表格、附圖與連結），可用以下頁面查閱：', '']
+for k in ('01', '02', '03', '04', '05', '06', '07A', '07B', '08', '10'):
+    L.append(f'- {k}　{SRC[k]}：https://avrilchenedu.github.io/interference-diffraction-textbook/#/teach/doc_{k}')
+L.append('')
+L += ['# 第十章　待補與待確認事項', '',
       '## 待補（原始文件未提供）', '',
       '| 序 | 項目 | 文件中提及處 |', '|---|---|---|',
       '| 1 | 第 1 節學習單 Q1–Q8 題目全文 | 02 |',
@@ -243,7 +289,7 @@ L += ['# 第九章　待補與待確認事項', '',
       '| 3 | 13 頁紙本教科書 | 02 |',
       '| 4 | AI 回應與診斷規範（A01，第 6、8.3、9、10 章） | 08 |',
       '| 5 | 核心教學題目「原始完整版備份」 | 05 |',
-      '| 6 | 前測、隨堂測驗、後測題目 | 02、06 |', '',
+      '| 6 | 前測、隨堂測驗、後測題目（06 僅有雙向細目表） | 02、06 |', '',
       '## 待確認', '',
       '| 序 | 事項 | 網站目前處理方式 |', '|---|---|---|',
       '| 1 | 03 基本資料寫「干涉與繞射第3節」，但內容與 02、08 均為第 2 節雙狹縫。 | 放在第 2 節學習單，03 原文照錄。 |',

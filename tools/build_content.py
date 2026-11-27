@@ -521,6 +521,8 @@ for n in (1, 2, 3, 4):
 f08, l08 = raw_para_links('08', '格式參考')
 f10, l10 = raw_para_links('10', '設計參考')
 pages.append({'id': 'credits', 'mode': 'book', 'nav': '資料來源與授權', 'title': '資料來源與授權', 'blocks': [
+    h('專案報告'),
+    {'t': 'reflist', 'rows': [{'label': 'Word 檔', 'text': '', 'links': ['report/interference-diffraction-project-report.docx']}]},
     h('原始文件'),
     note('本網站所有教學文字皆逐字取自以下 10 份原始文件；點選可查看各文件的完整內容。'),
     {'t': 'doclist', 'items': [{'code': k, 'name': DOCNAME[k], 'file': DOCFILE[k], 'target': 'doc_' + k} for k in DOCNAME]},
