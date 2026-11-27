@@ -21,6 +21,22 @@
    "title": "單元導讀　干涉與繞射",
    "blocks": [
     {
+     "t": "media",
+     "kind": "封面主視覺",
+     "file": "封面/干涉與繞射_封面主視覺.png",
+     "text": "封面、章首頁或投影片開場。",
+     "credit": "本教材自製視覺",
+     "imgs": [
+      {
+       "src": "assets/commons/c00.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Rainbow_Bubbles_-1_(4454715628).jpg",
+       "attrib": "Domenico Salvagnin from Legnaro, Italy｜CC BY 2.0（Wikimedia Commons：Rainbow Bubbles -1 (4454715628).jpg）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
      "t": "kv",
      "rows": [
       {
@@ -137,24 +153,14 @@
     },
     {
      "t": "h",
-     "title": "圖片與模擬"
+     "title": "圖片與互動模擬"
     },
     {
-     "t": "media",
-     "kind": "概念比較圖",
-     "file": "同向與反向脈衝完全重疊比較圖。",
-     "text": "節點：同一位置位移的代數和。第1節學習單Q2–Q3，觀察後比較完全重疊的兩種結果。",
-     "credit": "使用提醒：涉及實拍、模型或示意時，請在畫面中明確標示。",
-     "src": "assets/docs/07B_同向反向完全重疊比較圖.png",
-     "source": "07B"
-    },
-    {
-     "t": "media",
-     "kind": "模擬截圖",
-     "file": "第1節/水波干涉_3D關鍵畫面.png",
-     "text": "第1節觀察與解釋；模型畫面，非真實水槽證據。",
-     "credit": "本教材模擬截圖；詳見第1節原創聲明",
-     "missing": true,
+     "t": "sim",
+     "sim": "superposition",
+     "kind": "模擬",
+     "file": "波的疊加拷貝.html",
+     "text": "第1節：同一位置、同一時刻的位移代數和。先預測再操作，觀察重疊及通過後狀態。可調脈衝高度、寬度與位置。",
      "source": "07A"
     },
     {
@@ -163,7 +169,43 @@
      "file": "第1節/繩波相遇前_自製題圖.png",
      "text": "第1節預測；讓學生先畫完全重疊與通過後狀態。",
      "credit": "本教材自製",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/commons/c03.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Superposition-principle_of_wave_jp.svg",
+       "attrib": "すじにくシチュー｜CC0（Wikimedia Commons：Superposition-principle of wave jp.svg）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
+     "t": "media",
+     "kind": "模擬截圖",
+     "file": "第1節/水波干涉_3D關鍵畫面.png",
+     "text": "第1節觀察與解釋；模型畫面，非真實水槽證據。",
+     "credit": "本教材模擬截圖；詳見第1節原創聲明",
+     "imgs": [
+      {
+       "src": "assets/commons/c02.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-point-interference-ripple-tank.JPG",
+       "attrib": "The original uploader was RenamedUser2 at English Wikipedia.｜BSD（Wikimedia Commons：Two-point-interference-ripple-tank.JPG）"
+      },
+      {
+       "src": "assets/commons/c15.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Two_point_source_interference_Pattern_-_panoramio.jpg",
+       "attrib": "Lub0t｜CC BY 3.0（Wikimedia Commons：Two point source interference Pattern - panoramio.jpg）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
+     "t": "sim",
+     "sim": "ripple",
+     "kind": "模擬",
+     "file": "水波的干涉繞射拷貝.html",
+     "text": "第1節：雙波源干涉與節線、腹線。可調波源距離、振幅、頻率及速度；法拉第波僅作延伸。",
      "source": "07A"
     },
     {
@@ -172,25 +214,14 @@
      "file": "第1節/雙點波源AB點_自製題圖.png",
      "text": "第1節比較不同位置一段時間內的振幅與節／腹判斷。",
      "credit": "本教材自製",
-     "missing": true,
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "模擬",
-     "file": "波的疊加拷貝.html",
-     "text": "第1節：同一位置、同一時刻的位移代數和。先預測再操作，觀察重疊及通過後狀態。可調脈衝高度、寬度與位置。",
-     "credit": "瀏覽器Canvas；Tailwind需網路。\n本教材自製HTML／Canvas。",
-     "missing": true,
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "模擬",
-     "file": "水波的干涉繞射拷貝.html",
-     "text": "第1節：雙波源干涉與節線、腹線。可調波源距離、振幅、頻率及速度；法拉第波僅作延伸。",
-     "credit": "WebGL；Three.js、OrbitControls需網路；音效需授權。\n本教材整合既有模擬。",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/commons/c04.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Interference-pattern-two-point-sources.svg",
+       "attrib": "MikeRun｜CC BY-SA 4.0（Wikimedia Commons：Interference-pattern-two-point-sources.svg）"
+      }
+     ],
+     "web": true,
      "source": "07A"
     },
     {
@@ -258,7 +289,7 @@
     },
     {
      "t": "h",
-     "title": "圖片與模擬"
+     "title": "圖片與互動模擬"
     },
     {
      "t": "media",
@@ -266,82 +297,12 @@
      "file": "真實實驗照片/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
      "text": "632.8 nm紅光雙狹縫實拍。第2節觀察主要證據；先於理想模型呈現。",
      "credit": "Bryan Tong Minh｜Public Domain",
-     "src": "assets/photos/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG",
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "器材照片",
-     "file": "真實實驗照片/光凳器材組_Waifer-X_Cuesta-College_CC-BY-2.0.jpg",
-     "text": "第2節實驗前器材辨認；不宣稱照片為本次實驗組。",
-     "credit": "Waifer X／Cuesta College｜CC BY 2.0",
-     "src": "assets/photos/光凳器材組_Waifer-X_Cuesta-College_CC-BY-2.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Optical_Bench_educational_Kit_-_Cuesta_College.jpg",
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "架設照片",
-     "file": "真實實驗照片/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
-     "text": "第2節實驗前建立空間配置概念。",
-     "credit": "Cantons-de-l'Est｜CC BY-SA 4.0",
-     "src": "assets/photos/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Banc_optique_-_exemple_de_montage_01.jpg",
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "概念圖解",
-     "file": "惠更斯原理_示意圖解說.png",
-     "text": "第2節解釋；連結狹縫與次波源模型。",
-     "credit": "本教材自製",
-     "missing": true,
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "紙本衍生圖",
-     "file": "紙本教材用/惠更斯原理_關鍵畫面.png",
-     "text": "紙本教材定格說明；與原示意圖概念一致。",
-     "credit": "本教材自製圖之紙本輸出",
-     "missing": true,
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "紙本模型圖",
-     "file": "紙本教材用/雙狹縫_亮暗條紋_BD.png",
-     "text": "第2節解釋；說明同相／反相到達與亮暗位置。",
-     "credit": "本教材自製理想模型",
-     "missing": true,
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "紙本衍生圖",
-     "file": "紙本教材用/雙狹縫實驗架設_空間位置示意.svg.png",
-     "text": "紙本教材與學習單；只呈現器材位置，不畫光線路徑。",
-     "credit": "本教材自製SVG之輸出",
-     "missing": true,
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "向量示意圖",
-     "file": "雙狹縫實驗架設_空間位置示意.svg",
-     "text": "第2節實驗操作前說明；可無損放大。",
-     "credit": "本教材自製",
-     "missing": true,
-     "source": "07A"
-    },
-    {
-     "t": "media",
-     "kind": "模型題圖",
-     "file": "雙狹縫次波模型_自製題圖.png",
-     "text": "第2節解釋與論證；要求學生區分證據與模型。",
-     "credit": "本教材自製",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/photos/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -350,16 +311,130 @@
      "file": "雙狹縫裝置_預測題圖.png",
      "text": "第2節預測；先保留直進模型的預測。",
      "credit": "本教材自製",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/commons/c10.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-Slit_Experiment_Particles.svg",
+       "attrib": "inductiveload｜Public domain（Wikimedia Commons：Two-Slit Experiment Particles.svg）"
+      }
+     ],
+     "web": true,
      "source": "07A"
     },
     {
      "t": "media",
+     "kind": "向量示意圖",
+     "file": "雙狹縫實驗架設_空間位置示意.svg",
+     "text": "第2節實驗操作前說明；可無損放大。",
+     "credit": "本教材自製",
+     "imgs": [
+      {
+       "src": "assets/commons/c08.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Double_Slit_Experiment_-_Simplified_Diagram.jpg",
+       "attrib": "Theodore Xu｜CC BY-SA 4.0（Wikimedia Commons：Double Slit Experiment - Simplified Diagram.jpg）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
+     "t": "media",
+     "kind": "概念圖解",
+     "file": "惠更斯原理_示意圖解說.png",
+     "text": "第2節解釋；連結狹縫與次波源模型。",
+     "credit": "本教材自製",
+     "imgs": [
+      {
+       "src": "assets/commons/c13.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Refraction_on_an_aperture_-_Huygens-Fresnel_principle.svg",
+       "attrib": "Arne Nordmann (norro)｜CC BY-SA 3.0（Wikimedia Commons：Refraction on an aperture - Huygens-Fresnel principle.svg）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
+     "t": "media",
+     "kind": "紙本衍生圖",
+     "file": "紙本教材用/惠更斯原理_關鍵畫面.png",
+     "text": "紙本教材定格說明；與原示意圖概念一致。",
+     "credit": "本教材自製圖之紙本輸出",
+     "imgs": [
+      {
+       "src": "assets/commons/c17.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Diffraction_through_Slit.svg",
+       "attrib": "Inductiveload｜Public domain（Wikimedia Commons：Diffraction through Slit.svg）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
+     "t": "media",
+     "kind": "模型題圖",
+     "file": "雙狹縫次波模型_自製題圖.png",
+     "text": "第2節解釋與論證；要求學生區分證據與模型。",
+     "credit": "本教材自製",
+     "imgs": [
+      {
+       "src": "assets/commons/c09.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Wavefronts_of_two_coherent_point_sources.png",
+       "attrib": "Zhen Lin at English Wikipedia｜Public domain（Wikimedia Commons：Wavefronts of two coherent point sources.png）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
+     "t": "media",
+     "kind": "紙本模型圖",
+     "file": "紙本教材用/雙狹縫_亮暗條紋_BD.png",
+     "text": "第2節解釋；說明同相／反相到達與亮暗位置。",
+     "credit": "本教材自製理想模型",
+     "imgs": [
+      {
+       "src": "assets/commons/c07.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-Slit_Experiment_Light.svg",
+       "attrib": "inductiveload｜Public domain（Wikimedia Commons：Two-Slit Experiment Light.svg）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
+     "t": "sim",
+     "sim": "doubleslit",
      "kind": "模擬",
      "file": "光的干涉拷貝.html",
      "text": "第2節：在實拍證據後解釋雙狹縫條紋；調整波長、縫距與屏距，比較亮暗位置。可切換單色／白光。",
-     "credit": "Canvas；Tailwind、MathJax、字型需網路。\n本教材自製HTML／Canvas。",
-     "missing": true,
+     "source": "07A"
+    },
+    {
+     "t": "media",
+     "kind": "器材照片",
+     "file": "真實實驗照片/光凳器材組_Waifer-X_Cuesta-College_CC-BY-2.0.jpg",
+     "text": "第2節實驗前器材辨認；不宣稱照片為本次實驗組。",
+     "credit": "Waifer X／Cuesta College｜CC BY 2.0",
+     "imgs": [
+      {
+       "src": "assets/photos/光凳器材組_Waifer-X_Cuesta-College_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Optical_Bench_educational_Kit_-_Cuesta_College.jpg"
+      }
+     ],
+     "source": "07A"
+    },
+    {
+     "t": "media",
+     "kind": "架設照片",
+     "file": "真實實驗照片/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
+     "text": "第2節實驗前建立空間配置概念。",
+     "credit": "Cantons-de-l'Est｜CC BY-SA 4.0",
+     "imgs": [
+      {
+       "src": "assets/photos/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Banc_optique_-_exemple_de_montage_01.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -427,17 +502,7 @@
     },
     {
      "t": "h",
-     "title": "圖片與模擬"
-    },
-    {
-     "t": "media",
-     "kind": "實拍",
-     "file": "真實照片/單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg",
-     "text": "第3節觀察主要證據。",
-     "credit": "Xyqorophibian｜CC BY-SA 4.0",
-     "src": "assets/photos/單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Blue_laser_single_slit_diffraction_photo.jpg",
-     "source": "07A"
+     "title": "圖片與互動模擬"
     },
     {
      "t": "media",
@@ -445,7 +510,14 @@
      "file": "單狹縫繞射_實拍_文件用.png",
      "text": "第3節觀察主要證據；與理想圖樣並列比較。",
      "credit": "Xyqorophibian｜CC BY-SA 4.0；文件用衍生版本",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/photos/單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Blue_laser_single_slit_diffraction_photo.jpg",
+       "credit": "Xyqorophibian｜CC BY-SA 4.0"
+      }
+     ],
+     "web": true,
      "source": "07A"
     },
     {
@@ -454,17 +526,25 @@
      "file": "單狹縫繞射_理想圖樣.png",
      "text": "第3節解釋；不得取代實拍證據。",
      "credit": "本教材自製理想模型",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/commons/c11.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Single_Slit_Diffraction_(english).svg",
+       "attrib": "DL6ER｜CC BY-SA 4.0（Wikimedia Commons：Single Slit Diffraction (english).svg）"
+      },
+      {
+       "src": "assets/commons/c12.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Single-slit-diffraction-graph.svg",
+       "attrib": "Nmurdoch｜Public domain（Wikimedia Commons：Single-slit-diffraction-graph.svg）"
+      }
+     ],
+     "web": true,
      "source": "07A"
     },
     {
-     "t": "media",
-     "kind": "器材照片",
-     "file": "真實照片/可調式單狹縫器_Jan-Krieger_CC-BY-SA-3.0.jpg",
-     "text": "第3節器材辨認；照片尺度不代表課堂狹縫尺度。",
-     "credit": "Jan Krieger｜CC BY-SA 3.0",
-     "src": "assets/photos/可調式單狹縫器_Jan-Krieger_CC-BY-SA-3.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Xy_adjustable_optical_slit.jpg",
+     "t": "sim",
+     "sim": "singleslit",
+     "text": "",
      "source": "07A"
     },
     {
@@ -473,7 +553,28 @@
      "file": "單狹縫實驗架設_空間位置示意.svg",
      "text": "第3節實驗或示範前說明；不畫幾何光線。",
      "credit": "本教材自製",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/commons/c16.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Single_Slit_Diffraction.svg",
+       "attrib": "jkrieger｜CC BY-SA 3.0（Wikimedia Commons：Single Slit Diffraction.svg）"
+      }
+     ],
+     "web": true,
+     "source": "07A"
+    },
+    {
+     "t": "media",
+     "kind": "器材照片",
+     "file": "真實照片/可調式單狹縫器_Jan-Krieger_CC-BY-SA-3.0.jpg",
+     "text": "第3節器材辨認；照片尺度不代表課堂狹縫尺度。",
+     "credit": "Jan Krieger｜CC BY-SA 3.0",
+     "imgs": [
+      {
+       "src": "assets/photos/可調式單狹縫器_Jan-Krieger_CC-BY-SA-3.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Xy_adjustable_optical_slit.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -482,8 +583,12 @@
      "file": "真實照片/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
      "text": "單狹縫實驗器材配置參照。",
      "credit": "Cantons-de-l'Est｜CC BY-SA 4.0",
-     "src": "assets/photos/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Banc_optique_-_exemple_de_montage_01.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Banc_optique_-_exemple_de_montage_01.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -492,7 +597,19 @@
      "file": "雙狹縫與單狹縫_次波源分布.png",
      "text": "第3節比較雙狹縫干涉與單狹縫繞射的共同原理。",
      "credit": "本教材自製",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/commons/c09.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Wavefronts_of_two_coherent_point_sources.png",
+       "attrib": "Zhen Lin at English Wikipedia｜Public domain（Wikimedia Commons：Wavefronts of two coherent point sources.png）"
+      },
+      {
+       "src": "assets/commons/c13.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Refraction_on_an_aperture_-_Huygens-Fresnel_principle.svg",
+       "attrib": "Arne Nordmann (norro)｜CC BY-SA 3.0（Wikimedia Commons：Refraction on an aperture - Huygens-Fresnel principle.svg）"
+      }
+     ],
+     "web": true,
      "source": "07A"
     },
     {
@@ -505,8 +622,12 @@
      "file": "真實照片/光碟繞射_Hapecko_CC-BY-SA-4.0.jpg",
      "text": "第3節生活中的繞射；不歸為薄膜干涉。",
      "credit": "Hapecko｜CC BY-SA 4.0",
-     "src": "assets/photos/光碟繞射_Hapecko_CC-BY-SA-4.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:CD_rainbow.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/光碟繞射_Hapecko_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:CD_rainbow.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -515,8 +636,12 @@
      "file": "真實照片/教科書補充/望遠鏡繞射尖峰_ESA-Hubble_CC-BY-4.0.jpg",
      "text": "繞射科技情境；尖峰不是恆星真實外形。",
      "credit": "ESA/Hubble & NASA｜CC BY 4.0",
-     "src": "assets/photos/望遠鏡繞射尖峰_ESA-Hubble_CC-BY-4.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:A_slice_of_Sagittarius.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/望遠鏡繞射尖峰_ESA-Hubble_CC-BY-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:A_slice_of_Sagittarius.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -525,7 +650,39 @@
      "file": "生活中的干涉與繞射_實拍.png",
      "text": "第3節概念遷移與現象分類；機制需個別判斷。",
      "credit": "依組圖各照片原授權；詳見第3節授權文件",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/photos/光碟繞射_Hapecko_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:CD_rainbow.jpg",
+       "credit": "Hapecko｜CC BY-SA 4.0"
+      },
+      {
+       "src": "assets/photos/水面油膜_gambier20_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Rainbow_Pollution.jpg",
+       "credit": "gambier20｜CC BY 2.0"
+      },
+      {
+       "src": "assets/photos/肥皂泡薄膜干涉_Pksois23_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Thin_Film_Interference_Soap_Bubble.jpg",
+       "credit": "Pksois23｜CC BY-SA 4.0"
+      },
+      {
+       "src": "assets/photos/孔雀羽毛_Bernard-Spragg_CC0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Peacock_feathers._(20779300743).jpg",
+       "credit": "Bernard Spragg. NZ｜CC0"
+      },
+      {
+       "src": "assets/photos/藍閃蝶_Alias0591_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Blue_Morpho_butterfly_(Morpho_peleides)_wings_open.jpg",
+       "credit": "Alias 0591（Rene Mensen）｜CC BY 2.0"
+      },
+      {
+       "src": "assets/photos/望遠鏡繞射尖峰_ESA-Hubble_CC-BY-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:A_slice_of_Sagittarius.jpg",
+       "credit": "ESA/Hubble & NASA｜CC BY 4.0"
+      }
+     ],
+     "web": true,
      "source": "07A"
     },
     {
@@ -593,7 +750,7 @@
     },
     {
      "t": "h",
-     "title": "圖片與模擬"
+     "title": "圖片與互動模擬"
     },
     {
      "t": "media",
@@ -601,16 +758,27 @@
      "file": "薄膜干涉_實拍與剖面.png",
      "text": "第3節解釋；區分真實現象與機制模型。",
      "credit": "照片依各原授權；剖面為本教材自製",
-     "missing": true,
+     "imgs": [
+      {
+       "src": "assets/photos/肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B2_%D1%82%D0%BE%D0%BD%D0%BA%D0%BE%D0%B9_%D0%BC%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BB%D1%91%D0%BD%D0%BA%D0%B5.jpg",
+       "credit": "Yaroslav Ulyushin｜CC BY 4.0"
+      },
+      {
+       "src": "assets/commons/c14.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Thin_film_interference.svg",
+       "attrib": "Nicoguaro｜CC BY 4.0（Wikimedia Commons：Thin film interference.svg）"
+      }
+     ],
+     "web": true,
      "source": "07A"
     },
     {
-     "t": "media",
+     "t": "sim",
+     "sim": "thinfilm",
      "kind": "模擬",
      "file": "薄膜干涉拷貝.html",
      "text": "第3節：薄膜上下界面的兩路反射光與增強／減弱；可調波長及膜厚，數值與相位差作延伸。",
-     "credit": "Canvas；Tailwind需網路。\n本教材自製HTML／Canvas。",
-     "missing": true,
      "source": "07A"
     },
     {
@@ -623,8 +791,12 @@
      "file": "真實照片/水面油膜_gambier20_CC-BY-2.0.jpg",
      "text": "薄膜干涉生活情境；連結上下界面反射光。",
      "credit": "gambier20｜CC BY 2.0",
-     "src": "assets/photos/水面油膜_gambier20_CC-BY-2.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Rainbow_Pollution.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/水面油膜_gambier20_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Rainbow_Pollution.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -633,8 +805,12 @@
      "file": "真實照片/肥皂泡薄膜干涉_Pksois23_CC-BY-SA-4.0.jpg",
      "text": "薄膜干涉生活情境。",
      "credit": "Pksois23｜CC BY-SA 4.0",
-     "src": "assets/photos/肥皂泡薄膜干涉_Pksois23_CC-BY-SA-4.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Thin_Film_Interference_Soap_Bubble.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/肥皂泡薄膜干涉_Pksois23_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Thin_Film_Interference_Soap_Bubble.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -643,8 +819,12 @@
      "file": "真實照片/肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg",
      "text": "薄膜厚度不均與色彩分布的定性觀察。",
      "credit": "Yaroslav Ulyushin｜CC BY 4.0",
-     "src": "assets/photos/肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B2_%D1%82%D0%BE%D0%BD%D0%BA%D0%BE%D0%B9_%D0%BC%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BB%D1%91%D0%BD%D0%BA%D0%B5.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B2_%D1%82%D0%BE%D0%BD%D0%BA%D0%BE%D0%B9_%D0%BC%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BB%D1%91%D0%BD%D0%BA%D0%B5.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -653,8 +833,12 @@
      "file": "真實照片/一般鏡片與抗反射鏡片_Maximilian-Schoenherr_CC0.jpg",
      "text": "薄膜干涉科技應用補充。",
      "credit": "Maximilian Schönherr｜CC0",
-     "src": "assets/photos/一般鏡片與抗反射鏡片_Maximilian-Schoenherr_CC0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Reflective_and_anti-reflective_lens.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/一般鏡片與抗反射鏡片_Maximilian-Schoenherr_CC0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Reflective_and_anti-reflective_lens.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -663,8 +847,12 @@
      "file": "真實照片/教科書補充/牛頓環_Ulfbastel_PD.jpg",
      "text": "薄膜干涉延伸現象。",
      "credit": "Ulfbastel｜Public Domain",
-     "src": "assets/photos/牛頓環_Ulfbastel_PD.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Newton_rings.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/牛頓環_Ulfbastel_PD.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Newton_rings.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -673,8 +861,12 @@
      "file": "真實照片/教科書補充/孔雀羽毛_Bernard-Spragg_CC0.jpg",
      "text": "結構色延伸；避免只以顏料或單一機制解釋。",
      "credit": "Bernard Spragg. NZ｜CC0",
-     "src": "assets/photos/孔雀羽毛_Bernard-Spragg_CC0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Peacock_feathers._(20779300743).jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/孔雀羽毛_Bernard-Spragg_CC0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Peacock_feathers._(20779300743).jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -683,8 +875,12 @@
      "file": "真實照片/教科書補充/藍閃蝶_Alias0591_CC-BY-2.0.jpg",
      "text": "結構色延伸；可能同時涉及干涉、繞射與散射。",
      "credit": "Alias 0591（Rene Mensen）｜CC BY 2.0",
-     "src": "assets/photos/藍閃蝶_Alias0591_CC-BY-2.0.jpg",
-     "link": "https://commons.wikimedia.org/wiki/File:Blue_Morpho_butterfly_(Morpho_peleides)_wings_open.jpg",
+     "imgs": [
+      {
+       "src": "assets/photos/藍閃蝶_Alias0591_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Blue_Morpho_butterfly_(Morpho_peleides)_wings_open.jpg"
+      }
+     ],
      "source": "07A"
     },
     {
@@ -1222,147 +1418,251 @@
    "title": "圖片來源與授權",
    "blocks": [
     {
+     "t": "note",
+     "note": "標示「網路替代圖」者：原文件列出該圖但未附檔，改用 Wikimedia Commons 上內容相符的開放授權圖片，作者與授權如下。"
+    },
+    {
      "t": "credits",
      "items": [
       {
-       "t": "media",
-       "kind": "器材照片",
+       "src": "assets/commons/c01.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Soap_bubbles-jurvetson.jpg",
+       "file": "封面/封面_紙本13頁.png",
+       "text": "紙本教材封面；不作概念證據。",
+       "credit": "",
+       "attrib": "Steve Jurvetson｜CC BY 2.0（Wikimedia Commons：Soap bubbles-jurvetson.jpg）"
+      },
+      {
+       "src": "assets/commons/c00.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Rainbow_Bubbles_-1_(4454715628).jpg",
+       "file": "封面/干涉與繞射_封面主視覺.png",
+       "text": "封面、章首頁或投影片開場。",
+       "credit": "",
+       "attrib": "Domenico Salvagnin from Legnaro, Italy｜CC BY 2.0（Wikimedia Commons：Rainbow Bubbles -1 (4454715628).jpg）"
+      },
+      {
+       "src": "assets/commons/c02.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-point-interference-ripple-tank.JPG",
+       "file": "第1節/水波干涉_3D關鍵畫面.png",
+       "text": "第1節觀察與解釋；模型畫面，非真實水槽證據。",
+       "credit": "",
+       "attrib": "The original uploader was RenamedUser2 at English Wikipedia.｜BSD（Wikimedia Commons：Two-point-interference-ripple-tank.JPG）"
+      },
+      {
+       "src": "assets/commons/c15.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Two_point_source_interference_Pattern_-_panoramio.jpg",
+       "file": "第1節/水波干涉_3D關鍵畫面.png",
+       "text": "第1節觀察與解釋；模型畫面，非真實水槽證據。",
+       "credit": "",
+       "attrib": "Lub0t｜CC BY 3.0（Wikimedia Commons：Two point source interference Pattern - panoramio.jpg）"
+      },
+      {
+       "src": "assets/commons/c03.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Superposition-principle_of_wave_jp.svg",
+       "file": "第1節/繩波相遇前_自製題圖.png",
+       "text": "第1節預測；讓學生先畫完全重疊與通過後狀態。",
+       "credit": "",
+       "attrib": "すじにくシチュー｜CC0（Wikimedia Commons：Superposition-principle of wave jp.svg）"
+      },
+      {
+       "src": "assets/commons/c04.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Interference-pattern-two-point-sources.svg",
+       "file": "第1節/雙點波源AB點_自製題圖.png",
+       "text": "第1節比較不同位置一段時間內的振幅與節／腹判斷。",
+       "credit": "",
+       "attrib": "MikeRun｜CC BY-SA 4.0（Wikimedia Commons：Interference-pattern-two-point-sources.svg）"
+      },
+      {
+       "src": "assets/commons/c13.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Refraction_on_an_aperture_-_Huygens-Fresnel_principle.svg",
+       "file": "惠更斯原理_示意圖解說.png",
+       "text": "第2節解釋；連結狹縫與次波源模型。",
+       "credit": "",
+       "attrib": "Arne Nordmann (norro)｜CC BY-SA 3.0（Wikimedia Commons：Refraction on an aperture - Huygens-Fresnel principle.svg）"
+      },
+      {
+       "src": "assets/photos/光凳器材組_Waifer-X_Cuesta-College_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Optical_Bench_educational_Kit_-_Cuesta_College.jpg",
        "file": "真實實驗照片/光凳器材組_Waifer-X_Cuesta-College_CC-BY-2.0.jpg",
        "text": "第2節實驗前器材辨認；不宣稱照片為本次實驗組。",
        "credit": "Waifer X／Cuesta College｜CC BY 2.0",
-       "src": "assets/photos/光凳器材組_Waifer-X_Cuesta-College_CC-BY-2.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Optical_Bench_educational_Kit_-_Cuesta_College.jpg",
-       "source": "07A"
+       "attrib": ""
       },
       {
-       "t": "media",
-       "kind": "架設照片",
+       "src": "assets/photos/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Banc_optique_-_exemple_de_montage_01.jpg",
        "file": "真實實驗照片/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
        "text": "第2節實驗前建立空間配置概念。",
        "credit": "Cantons-de-l'Est｜CC BY-SA 4.0",
-       "src": "assets/photos/光凳實際架設_Cantons-de-lEst_CC-BY-SA-4.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Banc_optique_-_exemple_de_montage_01.jpg",
-       "source": "07A"
+       "attrib": ""
       },
       {
-       "t": "media",
-       "kind": "實拍",
+       "src": "assets/photos/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG",
        "file": "真實實驗照片/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
        "text": "632.8 nm紅光雙狹縫實拍。第2節觀察主要證據；先於理想模型呈現。",
        "credit": "Bryan Tong Minh｜Public Domain",
-       "src": "assets/photos/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG",
-       "source": "07A"
+       "attrib": ""
       },
       {
-       "t": "media",
-       "kind": "應用實拍",
+       "src": "assets/commons/c17.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Diffraction_through_Slit.svg",
+       "file": "紙本教材用/惠更斯原理_關鍵畫面.png",
+       "text": "紙本教材定格說明；與原示意圖概念一致。",
+       "credit": "",
+       "attrib": "Inductiveload｜Public domain（Wikimedia Commons：Diffraction through Slit.svg）"
+      },
+      {
+       "src": "assets/commons/c07.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-Slit_Experiment_Light.svg",
+       "file": "紙本教材用/雙狹縫_亮暗條紋_BD.png",
+       "text": "第2節解釋；說明同相／反相到達與亮暗位置。",
+       "credit": "",
+       "attrib": "inductiveload｜Public domain（Wikimedia Commons：Two-Slit Experiment Light.svg）"
+      },
+      {
+       "src": "assets/commons/c08.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Double_Slit_Experiment_-_Simplified_Diagram.jpg",
+       "file": "紙本教材用/雙狹縫實驗架設_空間位置示意.svg.png",
+       "text": "紙本教材與學習單；只呈現器材位置，不畫光線路徑。",
+       "credit": "",
+       "attrib": "Theodore Xu｜CC BY-SA 4.0（Wikimedia Commons：Double Slit Experiment - Simplified Diagram.jpg）"
+      },
+      {
+       "src": "assets/commons/c09.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Wavefronts_of_two_coherent_point_sources.png",
+       "file": "雙狹縫次波模型_自製題圖.png",
+       "text": "第2節解釋與論證；要求學生區分證據與模型。",
+       "credit": "",
+       "attrib": "Zhen Lin at English Wikipedia｜Public domain（Wikimedia Commons：Wavefronts of two coherent point sources.png）"
+      },
+      {
+       "src": "assets/commons/c10.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-Slit_Experiment_Particles.svg",
+       "file": "雙狹縫裝置_預測題圖.png",
+       "text": "第2節預測；先保留直進模型的預測。",
+       "credit": "",
+       "attrib": "inductiveload｜Public domain（Wikimedia Commons：Two-Slit Experiment Particles.svg）"
+      },
+      {
+       "src": "assets/commons/c16.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Single_Slit_Diffraction.svg",
+       "file": "單狹縫實驗架設_空間位置示意.svg",
+       "text": "第3節實驗或示範前說明；不畫幾何光線。",
+       "credit": "",
+       "attrib": "jkrieger｜CC BY-SA 3.0（Wikimedia Commons：Single Slit Diffraction.svg）"
+      },
+      {
+       "src": "assets/photos/單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Blue_laser_single_slit_diffraction_photo.jpg",
+       "file": "單狹縫繞射_實拍_文件用.png",
+       "text": "第3節觀察主要證據；與理想圖樣並列比較。",
+       "credit": "Xyqorophibian｜CC BY-SA 4.0",
+       "attrib": ""
+      },
+      {
+       "src": "assets/commons/c11.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Single_Slit_Diffraction_(english).svg",
+       "file": "單狹縫繞射_理想圖樣.png",
+       "text": "第3節解釋；不得取代實拍證據。",
+       "credit": "",
+       "attrib": "DL6ER｜CC BY-SA 4.0（Wikimedia Commons：Single Slit Diffraction (english).svg）"
+      },
+      {
+       "src": "assets/commons/c12.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Single-slit-diffraction-graph.svg",
+       "file": "單狹縫繞射_理想圖樣.png",
+       "text": "第3節解釋；不得取代實拍證據。",
+       "credit": "",
+       "attrib": "Nmurdoch｜Public domain（Wikimedia Commons：Single-slit-diffraction-graph.svg）"
+      },
+      {
+       "src": "assets/photos/光碟繞射_Hapecko_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:CD_rainbow.jpg",
+       "file": "生活中的干涉與繞射_實拍.png",
+       "text": "第3節概念遷移與現象分類；機制需個別判斷。",
+       "credit": "Hapecko｜CC BY-SA 4.0",
+       "attrib": ""
+      },
+      {
+       "src": "assets/photos/水面油膜_gambier20_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Rainbow_Pollution.jpg",
+       "file": "生活中的干涉與繞射_實拍.png",
+       "text": "第3節概念遷移與現象分類；機制需個別判斷。",
+       "credit": "gambier20｜CC BY 2.0",
+       "attrib": ""
+      },
+      {
+       "src": "assets/photos/肥皂泡薄膜干涉_Pksois23_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Thin_Film_Interference_Soap_Bubble.jpg",
+       "file": "生活中的干涉與繞射_實拍.png",
+       "text": "第3節概念遷移與現象分類；機制需個別判斷。",
+       "credit": "Pksois23｜CC BY-SA 4.0",
+       "attrib": ""
+      },
+      {
+       "src": "assets/photos/孔雀羽毛_Bernard-Spragg_CC0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Peacock_feathers._(20779300743).jpg",
+       "file": "生活中的干涉與繞射_實拍.png",
+       "text": "第3節概念遷移與現象分類；機制需個別判斷。",
+       "credit": "Bernard Spragg. NZ｜CC0",
+       "attrib": ""
+      },
+      {
+       "src": "assets/photos/藍閃蝶_Alias0591_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Blue_Morpho_butterfly_(Morpho_peleides)_wings_open.jpg",
+       "file": "生活中的干涉與繞射_實拍.png",
+       "text": "第3節概念遷移與現象分類；機制需個別判斷。",
+       "credit": "Alias 0591（Rene Mensen）｜CC BY 2.0",
+       "attrib": ""
+      },
+      {
+       "src": "assets/photos/望遠鏡繞射尖峰_ESA-Hubble_CC-BY-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:A_slice_of_Sagittarius.jpg",
+       "file": "生活中的干涉與繞射_實拍.png",
+       "text": "第3節概念遷移與現象分類；機制需個別判斷。",
+       "credit": "ESA/Hubble & NASA｜CC BY 4.0",
+       "attrib": ""
+      },
+      {
+       "src": "assets/photos/一般鏡片與抗反射鏡片_Maximilian-Schoenherr_CC0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Reflective_and_anti-reflective_lens.jpg",
        "file": "真實照片/一般鏡片與抗反射鏡片_Maximilian-Schoenherr_CC0.jpg",
        "text": "薄膜干涉科技應用補充。",
        "credit": "Maximilian Schönherr｜CC0",
-       "src": "assets/photos/一般鏡片與抗反射鏡片_Maximilian-Schoenherr_CC0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Reflective_and_anti-reflective_lens.jpg",
-       "source": "07A"
+       "attrib": ""
       },
       {
-       "t": "media",
-       "kind": "生活實拍",
-       "file": "真實照片/光碟繞射_Hapecko_CC-BY-SA-4.0.jpg",
-       "text": "第3節生活中的繞射；不歸為薄膜干涉。",
-       "credit": "Hapecko｜CC BY-SA 4.0",
-       "src": "assets/photos/光碟繞射_Hapecko_CC-BY-SA-4.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:CD_rainbow.jpg",
-       "source": "07A"
-      },
-      {
-       "t": "media",
-       "kind": "器材照片",
+       "src": "assets/photos/可調式單狹縫器_Jan-Krieger_CC-BY-SA-3.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Xy_adjustable_optical_slit.jpg",
        "file": "真實照片/可調式單狹縫器_Jan-Krieger_CC-BY-SA-3.0.jpg",
        "text": "第3節器材辨認；照片尺度不代表課堂狹縫尺度。",
        "credit": "Jan Krieger｜CC BY-SA 3.0",
-       "src": "assets/photos/可調式單狹縫器_Jan-Krieger_CC-BY-SA-3.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Xy_adjustable_optical_slit.jpg",
-       "source": "07A"
+       "attrib": ""
       },
       {
-       "t": "media",
-       "kind": "實拍",
-       "file": "真實照片/單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg",
-       "text": "第3節觀察主要證據。",
-       "credit": "Xyqorophibian｜CC BY-SA 4.0",
-       "src": "assets/photos/單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Blue_laser_single_slit_diffraction_photo.jpg",
-       "source": "07A"
-      },
-      {
-       "t": "media",
-       "kind": "延伸照片",
-       "file": "真實照片/教科書補充/孔雀羽毛_Bernard-Spragg_CC0.jpg",
-       "text": "結構色延伸；避免只以顏料或單一機制解釋。",
-       "credit": "Bernard Spragg. NZ｜CC0",
-       "src": "assets/photos/孔雀羽毛_Bernard-Spragg_CC0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Peacock_feathers._(20779300743).jpg",
-       "source": "07A"
-      },
-      {
-       "t": "media",
-       "kind": "延伸照片",
-       "file": "真實照片/教科書補充/望遠鏡繞射尖峰_ESA-Hubble_CC-BY-4.0.jpg",
-       "text": "繞射科技情境；尖峰不是恆星真實外形。",
-       "credit": "ESA/Hubble & NASA｜CC BY 4.0",
-       "src": "assets/photos/望遠鏡繞射尖峰_ESA-Hubble_CC-BY-4.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:A_slice_of_Sagittarius.jpg",
-       "source": "07A"
-      },
-      {
-       "t": "media",
-       "kind": "延伸照片",
+       "src": "assets/photos/牛頓環_Ulfbastel_PD.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Newton_rings.jpg",
        "file": "真實照片/教科書補充/牛頓環_Ulfbastel_PD.jpg",
        "text": "薄膜干涉延伸現象。",
        "credit": "Ulfbastel｜Public Domain",
-       "src": "assets/photos/牛頓環_Ulfbastel_PD.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Newton_rings.jpg",
-       "source": "07A"
+       "attrib": ""
       },
       {
-       "t": "media",
-       "kind": "延伸照片",
-       "file": "真實照片/教科書補充/藍閃蝶_Alias0591_CC-BY-2.0.jpg",
-       "text": "結構色延伸；可能同時涉及干涉、繞射與散射。",
-       "credit": "Alias 0591（Rene Mensen）｜CC BY 2.0",
-       "src": "assets/photos/藍閃蝶_Alias0591_CC-BY-2.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Blue_Morpho_butterfly_(Morpho_peleides)_wings_open.jpg",
-       "source": "07A"
-      },
-      {
-       "t": "media",
-       "kind": "生活實拍",
-       "file": "真實照片/水面油膜_gambier20_CC-BY-2.0.jpg",
-       "text": "薄膜干涉生活情境；連結上下界面反射光。",
-       "credit": "gambier20｜CC BY 2.0",
-       "src": "assets/photos/水面油膜_gambier20_CC-BY-2.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Rainbow_Pollution.jpg",
-       "source": "07A"
-      },
-      {
-       "t": "media",
-       "kind": "生活實拍",
-       "file": "真實照片/肥皂泡薄膜干涉_Pksois23_CC-BY-SA-4.0.jpg",
-       "text": "薄膜干涉生活情境。",
-       "credit": "Pksois23｜CC BY-SA 4.0",
-       "src": "assets/photos/肥皂泡薄膜干涉_Pksois23_CC-BY-SA-4.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:Thin_Film_Interference_Soap_Bubble.jpg",
-       "source": "07A"
-      },
-      {
-       "t": "media",
-       "kind": "生活實拍",
+       "src": "assets/photos/肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B2_%D1%82%D0%BE%D0%BD%D0%BA%D0%BE%D0%B9_%D0%BC%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BB%D1%91%D0%BD%D0%BA%D0%B5.jpg",
        "file": "真實照片/肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg",
        "text": "薄膜厚度不均與色彩分布的定性觀察。",
        "credit": "Yaroslav Ulyushin｜CC BY 4.0",
-       "src": "assets/photos/肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg",
-       "link": "https://commons.wikimedia.org/wiki/File:%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B2_%D1%82%D0%BE%D0%BD%D0%BA%D0%BE%D0%B9_%D0%BC%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BB%D1%91%D0%BD%D0%BA%D0%B5.jpg",
-       "source": "07A"
+       "attrib": ""
+      },
+      {
+       "src": "assets/commons/c14.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Thin_film_interference.svg",
+       "file": "薄膜干涉_實拍與剖面.png",
+       "text": "第3節解釋；區分真實現象與機制模型。",
+       "credit": "",
+       "attrib": "Nicoguaro｜CC BY 4.0（Wikimedia Commons：Thin film interference.svg）"
       }
      ]
     },
@@ -1629,7 +1929,7 @@
   {
    "id": "t1",
    "mode": "teach",
-   "nav": "第 1 節授課",
+   "nav": "第 1 節教案全文",
    "title": "第1節　波的疊加與水波干涉",
    "blocks": [
     {
@@ -1883,7 +2183,7 @@
   {
    "id": "t2",
    "mode": "teach",
-   "nav": "第 2 節授課",
+   "nav": "第 2 節教案全文",
    "title": "第2節　光的雙狹縫干涉",
    "blocks": [
     {
@@ -2268,7 +2568,7 @@
   {
    "id": "t3",
    "mode": "teach",
-   "nav": "第 3 節授課",
+   "nav": "第 3 節教案全文",
    "title": "第3節　光的繞射與生活應用",
    "blocks": [
     {
@@ -4020,6 +4320,1158 @@
      "title": "試題評量"
     }
    ]
+  },
+  {
+   "id": "d1",
+   "mode": "teach",
+   "nav": "第 1 節上課簡報",
+   "title": "第1節　波的疊加與水波干涉",
+   "deck": [
+    {
+     "kind": "title",
+     "title": "第1節　波的疊加與水波干涉",
+     "time": "50分鐘",
+     "kv": [
+      {
+       "label": "核心問題",
+       "text": "波如何疊加？",
+       "source": "02"
+      },
+      {
+       "label": "本節功能",
+       "text": "建立規則",
+       "source": "02"
+      },
+      {
+       "label": "銜接與目標",
+       "text": "以繩波建立疊加規則，再解釋水波干涉；對應目標1、4。",
+       "source": "02"
+      },
+      {
+       "label": "產出與教材",
+       "text": "第1節學習單Q1–Q8、離線版與投影；留存波形圖、選點與兩段CER。",
+       "source": "02"
+      },
+      {
+       "label": "學習目標 1",
+       "text": "以疊加解釋繩波與水波。",
+       "source": "02"
+      },
+      {
+       "label": "學習目標 4",
+       "text": "引用光學證據完成論證，\n查核回饋並修訂。",
+       "source": "02"
+      }
+     ]
+    },
+    {
+     "time": "0-22分",
+     "do": "先畫脈衝，再看重疊與通過。",
+     "ask": "問：相消後波消失嗎？",
+     "student": "Q1預測、Q2畫圖；\nQ3用疊加解釋。",
+     "evidence": "位移相加；\n通過後仍傳播。",
+     "material": "繩波模擬\nQ1–Q3",
+     "heading": "兩個脈衝相遇",
+     "text": {
+      "ref": "課本第 1 節　正文第 1 段",
+      "paras": [
+       "兩列繩波脈衝相遇時，會暫時在同一段繩上重疊。在理想線性介質中，該處的合位移等於兩列波各自造成的位移相加。相遇結束後，兩列脈衝仍各自沿原方向傳播。"
+      ],
+      "target": "sec1"
+     },
+     "sim": "superposition",
+     "images": [
+      {
+       "src": "assets/commons/c03.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Superposition-principle_of_wave_jp.svg",
+       "attrib": "すじにくシチュー｜CC0（Wikimedia Commons：Superposition-principle of wave jp.svg）",
+       "cap": "網路替代圖：繩波相遇前"
+      }
+     ],
+     "concept": [
+      {
+       "label": "專業說明",
+       "text": "同處、同時的位移作代數相加；同調波源形成穩定的振幅強弱分布。",
+       "source": "02"
+      },
+      {
+       "label": "答案要素（題目卡1）",
+       "text": "須以同一位置、同一時刻的分波位移作代數相加；同向位移使合成位移增大，反向位移使合成位移減小，等大反向時瞬時合成位移可為零。重疊只發生於相遇期間，在理想線性介質中，兩列波通過後仍各自依原方向傳播。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "常見學習困難：第1節 波像物體碰撞",
+       "rows": [
+        [
+         "學生表現",
+         "「兩個波撞到後，\n會一起彈回去。」"
+        ],
+        [
+         "引導方式",
+         "追蹤同一脈衝，\n比較相遇、重疊及通過後。"
+        ],
+        [
+         "改善判準",
+         "能指出通過後仍沿\n原方向傳播。"
+        ]
+       ],
+       "source": "10"
+      },
+      {
+       "label": "二　單項引導表　範例2：波相遇會反彈",
+       "rows": [
+        [
+         "L1 釐清想法",
+         "你預測脈衝會反彈，\n是根據什麼想法？"
+        ],
+        [
+         "L2 回看證據",
+         "追蹤同一脈衝的相遇前、重疊與通過後；\n它的傳播方向有改變嗎？"
+        ],
+        [
+         "L3 連結說明",
+         "依Q2的圖，\n你會如何修訂「相遇後會反彈」？"
+        ]
+       ],
+       "source": "10"
+      },
+      {
+       "label": "題目卡1　常見迷思與錯誤",
+       "rows": [
+        [
+         "",
+         "把波相遇視為物體碰撞而反彈、黏住或消失；把瞬時合成位移為零說成兩列波或總能量永久消失；只寫「相加」卻未指明同一位置與同一時刻。"
+        ]
+       ],
+       "source": "05"
+      }
+     ]
+    },
+    {
+     "time": "0-22分",
+     "do": "先畫脈衝，再看重疊與通過。",
+     "ask": "問：相消後波消失嗎？",
+     "student": "Q1預測、Q2畫圖；\nQ3用疊加解釋。",
+     "evidence": "位移相加；\n通過後仍傳播。",
+     "material": "繩波模擬\nQ1–Q3",
+     "heading": "完全建設性干涉與完全破壞性干涉",
+     "text": {
+      "ref": "課本第 1 節　正文第 2 段",
+      "paras": [
+       "對同一位置的兩列同頻率週期波而言，若振動步調相同，合振幅最大，稱為完全建設性干涉；若振幅相等且振動步調恰好相反，合振幅為零，稱為完全破壞性干涉。"
+      ],
+      "target": "sec1"
+     },
+     "sim": "superposition",
+     "concept": [
+      {
+       "label": "核心理解",
+       "text": "在理想線性介質中，合位移等於各波位移之和；固定位置的振幅取決於兩列波的振動關係。",
+       "source": "01"
+      },
+      {
+       "label": "核心問題（題目卡1）",
+       "text": "兩列波在同一位置相遇時，合成位移如何決定？兩列波通過彼此後又會發生什麼？",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "條件與誤解",
+       "rows": [
+        [
+         "",
+         "適用理想線性介質。相消不等於能量消失；單張亮暗不能判定振幅。"
+        ]
+       ],
+       "source": "02"
+      },
+      {
+       "label": "題目卡1　成功規準",
+       "rows": [
+        [
+         "",
+         "達成：能畫出或敘述兩組代表案例的合成結果，明確使用位移代數和，並說明通過後各自傳播。\n發展中：能判斷增強或減弱，但缺少位置、時刻條件，或未交代通過後狀態。\n待支持：將兩波說成互撞反彈、永久合併或消失，或把相消解釋為能量不存在。"
+        ]
+       ],
+       "source": "05"
+      }
+     ]
+    },
+    {
+     "time": "22-42分",
+     "do": "先預測A、B，再看一週期。",
+     "ask": "問：亮處一定是腹線嗎？",
+     "student": "Q4預測；Q5選點；\nQ6比較結果。",
+     "evidence": "依一段時間的\n振幅判讀。",
+     "material": "3D及俯視\nQ4–Q6",
+     "heading": "水波干涉：位移與振幅",
+     "text": {
+      "ref": "課本第 1 節　正文第 3、4 段",
+      "paras": [
+       "位移是某一時刻偏離平衡位置的程度；振幅則是週期振動中偏離平衡位置的最大程度。某一刻位移為零，不能據此認定振幅為零。",
+       "兩個位置固定、振動關係固定的水波源，可形成位置穩定的干涉分布。完全相消還要求兩列波到達該處時振幅相等。局部振幅為零，不代表兩列波永久消失。"
+      ],
+      "target": "sec1"
+     },
+     "sim": "ripple",
+     "images": [
+      {
+       "src": "assets/commons/c02.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-point-interference-ripple-tank.JPG",
+       "attrib": "The original uploader was RenamedUser2 at English Wikipedia.｜BSD（Wikimedia Commons：Two-point-interference-ripple-tank.JPG）",
+       "cap": "網路替代圖：水波槽中的兩點波源干涉"
+      },
+      {
+       "src": "assets/commons/c04.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Interference-pattern-two-point-sources.svg",
+       "attrib": "MikeRun｜CC BY-SA 4.0（Wikimedia Commons：Interference-pattern-two-point-sources.svg）",
+       "cap": "網路替代圖：雙點波源干涉"
+      }
+     ],
+     "concept": [
+      {
+       "label": "核心問題（題目卡2）",
+       "text": "兩個同相點波源為什麼會形成位置穩定的腹線與節線，而不是隨機斑塊或另一組向外傳播的波？",
+       "source": "05"
+      },
+      {
+       "label": "答案要素（題目卡2）",
+       "text": "兩波源同頻率且相位關係固定，使固定位置的到達相位差保持穩定。同相到達時振幅增大；反相到達時振幅減小，觀察處等振幅時才完全相消。\n振幅極大或極小的位置連成腹線、節線；這些線不是向外移動的波前。判讀須看一段時間的起伏。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "常見學習困難：第1節 位移等於振幅",
+       "rows": [
+        [
+         "學生表現",
+         "「這一刻是零，\n所以振幅是零。」"
+        ],
+        [
+         "引導方式",
+         "固定同一位置，觀察完整週期；\n比較瞬時位移與最大位移。"
+        ],
+        [
+         "改善判準",
+         "能以完整週期的\n最大位移判斷振幅。"
+        ]
+       ],
+       "source": "10"
+      },
+      {
+       "label": "題目卡2　常見迷思與錯誤",
+       "rows": [
+        [
+         "",
+         "只把波峰交點當成建設性干涉；以亮色等同腹線、暗色等同節線；認為節線必定在真實水槽中完全靜止；把腹線或節線畫成向外傳播的圓形波。"
+        ]
+       ],
+       "source": "05"
+      },
+      {
+       "label": "題目卡2　預期證據",
+       "rows": [
+        [
+         "",
+         "同一位置在一個週期內的起伏紀錄、3D水面與俯視圖的對照、振幅最大與接近不動位置的選點紀錄。不得只用單一時刻的顏色或光影判斷。\n保存：選點、起伏紀錄及文字解釋，並註明實驗或模型。"
+        ]
+       ],
+       "source": "05"
+      }
+     ]
+    },
+    {
+     "time": "42-50分",
+     "do": "命名腹線、節線，再反思。",
+     "ask": "問：哪項觀察讓你改變？",
+     "student": "Q7寫水波CER；\nQ8寫想法改變。",
+     "evidence": "觀察支持解釋；\n指出修訂理由。",
+     "material": "Q7–Q8\n下載紀錄",
+     "heading": "命名腹線、節線，再反思",
+     "text": {
+      "ref": "課本第 1 節　正文第 4 段",
+      "paras": [
+       "兩個位置固定、振動關係固定的水波源，可形成位置穩定的干涉分布。完全相消還要求兩列波到達該處時振幅相等。局部振幅為零，不代表兩列波永久消失。"
+      ],
+      "target": "sec1"
+     },
+     "sim": "ripple",
+     "concept": [
+      {
+       "label": "成立條件與易混淆處",
+       "text": "疊加採理想線性近似。穩定干涉須有固定的波源相位關係；完全相消須在觀察處等振幅、反相。應寫「位移相消」，避免把它說成總能量消失。",
+       "source": "01"
+      },
+      {
+       "label": "答案要素（題目卡2）",
+       "text": "兩波源同頻率且相位關係固定，使固定位置的到達相位差保持穩定。同相到達時振幅增大；反相到達時振幅減小，觀察處等振幅時才完全相消。\n振幅極大或極小的位置連成腹線、節線；這些線不是向外移動的波前。判讀須看一段時間的起伏。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "題目卡2　成功規準",
+       "rows": [
+        [
+         "",
+         "達成：能從一段時間的振幅紀錄指出腹線與節線，並用固定到達關係、位移疊加與線狀分布完成因果鏈。\n發展中：能辨認腹線、節線或建設性、破壞性干涉，但未說明為何位置穩定或未區分振幅與瞬時位移。\n待支持：只依顏色、單張截圖或波峰交點判斷，或把干涉線當成波前。"
+        ]
+       ],
+       "source": "05"
+      },
+      {
+       "label": "條件與誤解",
+       "rows": [
+        [
+         "",
+         "適用理想線性介質。相消不等於能量消失；單張亮暗不能判定振幅。"
+        ]
+       ],
+       "source": "02"
+      }
+     ]
+    }
+   ],
+   "blocks": [],
+   "lesson": "t1"
+  },
+  {
+   "id": "d2",
+   "mode": "teach",
+   "nav": "第 2 節上課簡報",
+   "title": "第2節　光的雙狹縫干涉",
+   "deck": [
+    {
+     "kind": "title",
+     "title": "第2節　光的雙狹縫干涉",
+     "time": "50分鐘",
+     "kv": [
+      {
+       "label": "核心問題",
+       "text": "亮暗紋如何形成？",
+       "source": "02"
+      },
+      {
+       "label": "本節功能",
+       "text": "遷移至光",
+       "source": "02"
+      },
+      {
+       "label": "銜接與目標",
+       "text": "修訂水波CER，轉向光學觀察；對應目標2、4。",
+       "source": "02"
+      },
+      {
+       "label": "產出與教材",
+       "text": "第2節學習單Q1–Q6、離線版、教師投影及紅光雙狹縫實拍。",
+       "source": "02"
+      },
+      {
+       "label": "學習目標 2",
+       "text": "解釋雙狹縫亮暗紋。",
+       "source": "02"
+      },
+      {
+       "label": "學習目標 4",
+       "text": "引用光學證據完成論證，\n查核回饋並修訂。",
+       "source": "02"
+      }
+     ]
+    },
+    {
+     "time": "0-8分",
+     "do": "呈現匿名水波CER。",
+     "ask": "問：哪項觀察支持腹線、節線？",
+     "student": "檢查證據與推理，\n修訂第1節Q7。",
+     "evidence": "修訂有明確\n證據與理由。",
+     "material": "水波CER\n修訂前後稿",
+     "heading": "修訂水波 CER",
+     "concept": [
+      {
+       "label": "答案要素（題目卡2）",
+       "text": "兩波源同頻率且相位關係固定，使固定位置的到達相位差保持穩定。同相到達時振幅增大；反相到達時振幅減小，觀察處等振幅時才完全相消。\n振幅極大或極小的位置連成腹線、節線；這些線不是向外移動的波前。判讀須看一段時間的起伏。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "題目卡2　成功規準",
+       "rows": [
+        [
+         "",
+         "達成：能從一段時間的振幅紀錄指出腹線與節線，並用固定到達關係、位移疊加與線狀分布完成因果鏈。\n發展中：能辨認腹線、節線或建設性、破壞性干涉，但未說明為何位置穩定或未區分振幅與瞬時位移。\n待支持：只依顏色、單張截圖或波峰交點判斷，或把干涉線當成波前。"
+        ]
+       ],
+       "source": "05"
+      }
+     ]
+    },
+    {
+     "time": "8-15分",
+     "do": "只呈現裝置，不揭圖樣。",
+     "ask": "問：依直進模型會看到什麼？",
+     "student": "完成Q1：畫完整\n屏幕並寫理由。",
+     "evidence": "保留個別預測，\n不只畫狹縫。",
+     "material": "Q1\n提交後揭圖",
+     "heading": "先預測：屏幕上會看到什麼？",
+     "images": [
+      {
+       "src": "assets/commons/c08.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Double_Slit_Experiment_-_Simplified_Diagram.jpg",
+       "attrib": "Theodore Xu｜CC BY-SA 4.0（Wikimedia Commons：Double Slit Experiment - Simplified Diagram.jpg）",
+       "cap": "網路替代圖：雙狹縫實驗架設"
+      },
+      {
+       "src": "assets/commons/c10.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-Slit_Experiment_Particles.svg",
+       "attrib": "inductiveload｜Public domain（Wikimedia Commons：Two-Slit Experiment Particles.svg）",
+       "cap": "網路替代圖：直進模型的預測"
+      }
+     ],
+     "reveal": {
+      "src": "assets/photos/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
+      "link": "https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG",
+      "credit": "Bryan Tong Minh｜Public Domain",
+      "cap": "632.8 nm紅光雙狹縫實拍"
+     },
+     "worksheet": [
+      "Q1　你預測屏幕上會看到什麼？先勾選，再畫出中央與左右兩側的明暗分布，並寫出一項理由。深色代表暗，留白代表亮。",
+      "□ 主要只有兩條亮紋　□ 整片亮度差不多",
+      "□ 多條明暗相間的條紋　□ 其他：＿＿＿＿＿＿",
+      "我的屏幕圖樣預測（請在下方作圖）：",
+      "我這樣預測，因為：",
+      "＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿"
+     ],
+     "concept": [
+      {
+       "label": "核心問題（題目卡3）",
+       "text": "如果光只沿直線前進，雙狹縫後的屏幕應出現什麼？實際觀察到的多條規律亮暗紋，如何迫使我們修正原來的模型？",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "學習單 活動01　先預測（8分鐘）",
+       "rows": [
+        [
+         "參考答案與判讀",
+         "Q1不以預測正誤評分。完成要素為：畫出面向屏幕的完整分布，並保留至少一項可理解的理由。即使預測兩條亮紋，只要理由清楚，也可進入觀察活動。"
+        ],
+        [
+         "常見錯誤與引導",
+         "若只畫兩條狹縫，追問：「這是開口的樣子，還是屏幕上看到的樣子？」\n若先擦掉預測，提醒：「請保留初稿，等觀察後再比較。」"
+        ]
+       ],
+       "source": "03"
+      }
+     ]
+    },
+    {
+     "time": "15-32分",
+     "do": "先看實拍，再用模擬比較。",
+     "ask": "問：哪個特徵需要修正？",
+     "student": "Q2記錄來源與特徵；\nQ3比較預測。",
+     "evidence": "指出多條明暗紋；\n如實標示來源。",
+     "material": "實拍、模擬\nQ2–Q3",
+     "heading": "觀察實拍，再用模擬比較",
+     "text": {
+      "ref": "課本第 2 節　正文第 1 段",
+      "paras": [
+       "單色光照射兩條相近的窄縫後，屏幕可出現交替排列的明暗條紋。這些條紋是光在不同位置的強度分布，不能當成兩條狹縫的放大影像。"
+      ],
+      "target": "sec2"
+     },
+     "sim": "doubleslit",
+     "images": [
+      {
+       "src": "assets/photos/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG",
+       "credit": "Bryan Tong Minh｜Public Domain",
+       "cap": "632.8 nm紅光雙狹縫實拍"
+      }
+     ],
+     "concept": [
+      {
+       "label": "答案要素（題目卡3）",
+       "text": "在本活動的近似平行入射及單純幾何直進模型下，預期為兩條狹縫的投影；它無法說明實際屏幕多條明暗交替的分布。\n指出可回查的觀察與預測之差異，再引入能描述光波展開、重疊、增強與減弱的模型。",
+       "source": "05"
+      },
+      {
+       "label": "預期證據（題目卡3）",
+       "text": "教師現場雷射示範、可信實拍或影片中的完整屏幕亮度分布；至少指出中央、左右排列或明暗交替等可回查特徵。波前弧線與理想亮度圖只能作模型，不作主要實驗證據。\n保存：第2節學習單Q1–Q3，保留資料來源、原預測與比較理由。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "學習單 活動02　觀察與比較（12分鐘）",
+       "rows": [
+        [
+         "參考答案與判讀",
+         "Q2：依所用資料描述兩項特徵，例如明暗交替、左右近似對稱；中央附近亮紋間距近似相等。僅觀看模型時，應標為模型結果。\nQ3：指出保留或修改的內容，且能連到觀察；不要求每人一定改變想法。"
+        ],
+        [
+         "常見錯誤與引導",
+         "若以波面弧線當屏幕實拍，追問：「這個畫面是實際紀錄，還是用來解釋的模型？」\n若只寫「不同」，追問：「哪個觀察讓你修改哪一部分？」"
+        ]
+       ],
+       "source": "03"
+      },
+      {
+       "label": "常見學習困難：第2節 模型當成實拍",
+       "rows": [
+        [
+         "學生表現",
+         "「照片裡的光\n沿圓弧前進。」"
+        ],
+        [
+         "引導方式",
+         "並列實拍與波前圖，請學生\n標示來源及各圖能說明的事。"
+        ],
+        [
+         "改善判準",
+         "能區分亮度證據\n與模型線條。"
+        ]
+       ],
+       "source": "10"
+      },
+      {
+       "label": "題目卡3　常見迷思與錯誤",
+       "rows": [
+        [
+         "",
+         "把兩條狹縫本身畫成屏幕圖樣；以理想模擬取代真實觀察；只寫「因為光是波」而未指出直進模型失效的具體證據。"
+        ]
+       ],
+       "source": "05"
+      }
+     ]
+    },
+    {
+     "time": "32-45分",
+     "do": "用惠更斯原理解釋B亮、D暗。",
+     "ask": "問：暗處真的沒有光到達嗎？",
+     "student": "辨認相位與干涉，\n完成Q4。",
+     "evidence": "相位關係連到\n電場疊加及光強。",
+     "material": "次波模型\nQ4",
+     "heading": "用惠更斯原理解釋 B 亮、D 暗",
+     "text": {
+      "ref": "課本第 2 節　正文第 2、3 段",
+      "paras": [
+       "依惠更斯原理，波面上各點可視為發出次波的波源；在窄縫近似下，兩條狹縫可視為兩個次波源。同一穩定單色光適當照明兩縫時，兩者頻率相同，並保持固定的相位關係，稱為相干波源。相位描述週期振動進行到哪個階段。",
+       "兩列光波到達某處時，若相位相同便互相增強；若相位相反便互相減弱。兩列光波在該處振幅相等且反相時，可完全相消。眼睛無法追蹤光的快速振動，看到的是時間平均的光強度，因此形成亮紋與暗紋。"
+      ],
+      "target": "sec2"
+     },
+     "sim": "doubleslit",
+     "images": [
+      {
+       "src": "assets/commons/c13.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Refraction_on_an_aperture_-_Huygens-Fresnel_principle.svg",
+       "attrib": "Arne Nordmann (norro)｜CC BY-SA 3.0（Wikimedia Commons：Refraction on an aperture - Huygens-Fresnel principle.svg）",
+       "cap": "網路替代圖：惠更斯原理"
+      },
+      {
+       "src": "assets/commons/c09.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Wavefronts_of_two_coherent_point_sources.png",
+       "attrib": "Zhen Lin at English Wikipedia｜Public domain（Wikimedia Commons：Wavefronts of two coherent point sources.png）",
+       "cap": "網路替代圖：兩個相干點波源的波前"
+      }
+     ],
+     "concept": [
+      {
+       "label": "專業說明",
+       "text": "惠更斯原理：波面各點可視為次波源，次波包絡形成新波面。兩狹縫受同一入射波驅動，形成同調次波源；電場疊加造成亮暗。",
+       "source": "02"
+      },
+      {
+       "label": "答案要素（題目卡4）",
+       "text": "在惠更斯觀點下，窄縫可近似為次波源；同一束相干單色光照明，使兩狹縫的出射波同頻率且相位差固定。\n在同偏振的討論下，同相到達使時間平均光強較大；反相到達使光強減小，觀察處等振幅時理想光強為零。暗紋不是沒有光波到達。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "學習單 活動03　解釋亮暗（15分鐘）",
+       "rows": [
+        [
+         "參考答案與判讀",
+         "B：同相、建設性干涉、光強較強。D：反相、破壞性干涉，等振幅理想情況下光強為零。\n判讀重點：學生是否以相位關係及疊加解釋明暗，而非只寫亮暗名稱。實際暗紋可能受背景光或振幅不等影響。"
+        ],
+        [
+         "常見錯誤與引導",
+         "若認為D處沒有任何光波到達，追問：「從兩條狹縫出發的波能否都到達D？到達後如何疊加？」\n若說能量消失，追問：「其他屏幕位置的亮度有何變化？」"
+        ]
+       ],
+       "source": "03"
+      },
+      {
+       "label": "常見學習困難：第2節 暗紋等於無光",
+       "rows": [
+        [
+         "學生表現",
+         "「D點是暗的，\n所以沒有光到達。」"
+        ],
+        [
+         "引導方式",
+         "先看兩狹縫到D的路徑，\n再比較到達時的振動關係。"
+        ],
+        [
+         "改善判準",
+         "能連結兩路到達、\n反相疊加與暗紋。"
+        ]
+       ],
+       "source": "10"
+      },
+      {
+       "label": "二　單項引導表　範例1：暗紋等於沒有光到達",
+       "rows": [
+        [
+         "L1 釐清想法",
+         "你說「沒有光到達D」，\n是根據哪項觀察？"
+        ],
+        [
+         "L2 回看證據",
+         "在模型連出兩狹縫到D的路徑；\n兩路是否都能到達？"
+        ],
+        [
+         "L3 連結說明",
+         "D點兩路光到達時的振動關係，\n如何影響合成振幅與亮度？"
+        ]
+       ],
+       "source": "10"
+      },
+      {
+       "label": "AI回應檢查例",
+       "rows": [
+        [
+         "學生輸入",
+         "暗紋是光沒到D。"
+        ],
+        [
+         "可接受的引導",
+         "先看模型：兩個狹縫發出的波，\n都能到達D點嗎？"
+        ],
+        [
+         "不應出現的回覆",
+         "直接給出D點的\n反相與相消結論。"
+        ],
+        [
+         "學生輸入",
+         "直接給我完整答案。"
+        ],
+        [
+         "可接受的引導",
+         "先從你已有的觀察開始：\n實拍中哪項亮暗特徵需要解釋？"
+        ],
+        [
+         "不應出現的回覆",
+         "可直接繳交的\n完整Q4答案。"
+        ]
+       ],
+       "source": "08"
+      }
+     ]
+    },
+    {
+     "time": "45-50分",
+     "do": "檢查CER的證據與推理。",
+     "ask": "問：水波位移與屏幕亮暗相同嗎？",
+     "student": "Q5比較水波與光；\nQ6完成光CER。",
+     "evidence": "引用屏幕觀察；\n寫出類比限制。",
+     "material": "Q5–Q6\n下載紀錄",
+     "heading": "比較水波與光，寫出完整解釋",
+     "text": {
+      "ref": "課本第 2 節　正文第 4 段",
+      "paras": [
+       "暗紋不表示兩列光波都未到達。光波疊加可以解釋這種規律分布，提供光具有波動性的證據。"
+      ],
+      "target": "sec2"
+     },
+     "images": [
+      {
+       "src": "assets/commons/c07.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Two-Slit_Experiment_Light.svg",
+       "attrib": "inductiveload｜Public domain（Wikimedia Commons：Two-Slit Experiment Light.svg）",
+       "cap": "網路替代圖：雙狹縫亮暗條紋"
+      }
+     ],
+     "concept": [
+      {
+       "label": "成立條件與易混淆處",
+       "text": "此處採同偏振方向、相干單色光的理想模型。完全暗紋還需等振幅；實驗暗紋可能仍有背景光。兩縫都會產生繞射，不能說雙狹縫只有干涉。",
+       "source": "01"
+      },
+      {
+       "label": "成功規準（題目卡4）",
+       "text": "達成：能完整連結惠更斯原理、兩個相干次波源、相位關係、干涉結果與屏幕亮度，並區分真實證據與模型。\n發展中：能寫出同相亮、反相暗，但未說明次波源由來、光強度或證據地位。\n待支持：把亮暗解釋成狹縫影像、遮擋或有無光到達，或把模型圖當作實拍。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "學習單 活動04　比較與統整（15分鐘）",
+       "rows": [
+        [
+         "參考答案與判讀",
+         "Q5：水波可看水面起伏；屏幕呈現時間平均的光強分布。共同規則為波的疊加與建設性／破壞性干涉。\nQ6參考：兩窄縫可視為相干次波源。兩列光波在屏幕各處疊加。同相處增強形成亮紋。反相處減弱，等振幅時可完全相消形成暗紋。這可解釋Q2的明暗分布；若Q2僅模型，應註明尚待實際觀察支持。"
+        ],
+        [
+         "常見錯誤與引導",
+         "若把水面瞬時位移直接當成光強，追問：「兩種活動各自直接看到的是什麼？」\n若Q6只有名詞列表，追問：「請用『因為……所以……』連起相位、疊加與亮暗。」"
+        ]
+       ],
+       "source": "03"
+      },
+      {
+       "label": "條件與誤解",
+       "rows": [
+        [
+         "",
+         "屏幕顯示時間平均光強；模型波面不是可見光路。暗紋不等於沒有光到達。若選用雷射示範，由教師固定光路，避開眼睛與鏡面；調整前關閉光源。"
+        ]
+       ],
+       "source": "02"
+      }
+     ]
+    }
+   ],
+   "blocks": [],
+   "lesson": "t2"
+  },
+  {
+   "id": "d3",
+   "mode": "teach",
+   "nav": "第 3 節上課簡報",
+   "title": "第3節　光的繞射與生活應用",
+   "deck": [
+    {
+     "kind": "title",
+     "title": "第3節　光的繞射與生活應用",
+     "time": "50分鐘",
+     "kv": [
+      {
+       "label": "核心問題",
+       "text": "何以支持波動性？",
+       "source": "02"
+      },
+      {
+       "label": "本節功能",
+       "text": "應用統整",
+       "source": "02"
+      },
+      {
+       "label": "銜接與目標",
+       "text": "承接光CER，比較繞射、說明薄膜並統整波動性；對應目標3、4。",
+       "source": "02"
+      },
+      {
+       "label": "產出與教材",
+       "text": "第3節學習單Q1、Q3、Q5、離線版與投影；單狹縫及薄膜實拍。",
+       "source": "02"
+      },
+      {
+       "label": "學習目標 3",
+       "text": "比較干涉、繞射與薄膜反射。",
+       "source": "02"
+      },
+      {
+       "label": "學習目標 4",
+       "text": "引用光學證據完成論證，\n查核回饋並修訂。",
+       "source": "02"
+      }
+     ]
+    },
+    {
+     "time": "0-8分",
+     "do": "呈現匿名後台回答紀錄。",
+     "ask": "問：哪句把模型當成實驗證據？",
+     "student": "修訂第2節Q6，\n補上證據或推理。",
+     "evidence": "區分光學實拍、\n水波類比與模型。",
+     "material": "光CER\n修訂前後稿",
+     "heading": "哪句把模型當成實驗證據？",
+     "images": [
+      {
+       "src": "assets/photos/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG",
+       "credit": "Bryan Tong Minh｜Public Domain",
+       "cap": "實拍"
+      },
+      {
+       "src": "assets/commons/c09.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Wavefronts_of_two_coherent_point_sources.png",
+       "attrib": "Zhen Lin at English Wikipedia｜Public domain（Wikimedia Commons：Wavefronts of two coherent point sources.png）",
+       "cap": "網路替代圖：模型"
+      }
+     ],
+     "concept": [
+      {
+       "label": "預期證據（題目卡3）",
+       "text": "教師現場雷射示範、可信實拍或影片中的完整屏幕亮度分布；至少指出中央、左右排列或明暗交替等可回查特徵。波前弧線與理想亮度圖只能作模型，不作主要實驗證據。\n保存：第2節學習單Q1–Q3，保留資料來源、原預測與比較理由。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "常見學習困難：第2節 模型當成實拍",
+       "rows": [
+        [
+         "學生表現",
+         "「照片裡的光\n沿圓弧前進。」"
+        ],
+        [
+         "引導方式",
+         "並列實拍與波前圖，請學生\n標示來源及各圖能說明的事。"
+        ],
+        [
+         "改善判準",
+         "能區分亮度證據\n與模型線條。"
+        ]
+       ],
+       "source": "10"
+      }
+     ]
+    },
+    {
+     "time": "8-18分",
+     "do": "先比實拍，再比次波源分布。",
+     "ask": "問：中央與兩側亮紋有何差別？",
+     "student": "完成Q1；口頭比較\n單、雙狹縫。",
+     "evidence": "中央較寬較亮；\n兩側漸弱。",
+     "material": "單狹縫實拍\nQ1",
+     "heading": "單狹縫繞射：中央與兩側亮紋",
+     "text": {
+      "ref": "課本第 3 節　正文第 1、2、3 段",
+      "paras": [
+       "單色光通過窄單狹縫後，會向側方展開。在遠場條件下，屏幕中央出現較寬、較亮的中央亮紋，兩側則有較窄、逐漸變弱的旁側亮紋，亮紋之間由暗紋隔開。此處的遠場指屏幕足夠遠，使縫內各處到同一觀察點的傳播方向可近似平行。",
+       "以均勻、同相照明的狹縫為例，縫內不同位置可視為許多次波源。正前方的次波大致同相到達，彼此增強；偏離正前方後，各次波的路徑長度不同，某些方向完全相消，另一些方向仍有部分增強。",
+       "在相同波長與遠場觀察條件下，於本教材的狹縫尺度內縮小縫寬，會使繞射展開角度增加，中央亮紋變寬。這不是狹縫影像的單純放大。"
+      ],
+      "target": "sec3"
+     },
+     "sim": "singleslit",
+     "images": [
+      {
+       "src": "assets/photos/單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Blue_laser_single_slit_diffraction_photo.jpg",
+       "credit": "Xyqorophibian｜CC BY-SA 4.0",
+       "cap": "單狹縫繞射實拍"
+      },
+      {
+       "src": "assets/commons/c16.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Single_Slit_Diffraction.svg",
+       "attrib": "jkrieger｜CC BY-SA 3.0（Wikimedia Commons：Single Slit Diffraction.svg）",
+       "cap": "網路替代圖：單狹縫繞射"
+      }
+     ],
+     "concept": [
+      {
+       "label": "專業說明",
+       "text": "干涉與繞射皆由次波疊加理解：雙狹縫可近似為兩個分立次波源，單狹縫為連續分布的次波源。薄膜上下表面的反射光重疊，形成干涉。",
+       "source": "02"
+      },
+      {
+       "label": "答案要素（題目卡5）",
+       "text": "兩者皆可由次波疊加說明。窄雙縫近似為兩個分立次波源；單縫內有連續分布的次波源，因此可形成不同的明暗分布。\n均勻照明的單縫遠場圖樣中，中央亮紋比自身旁側亮紋寬且亮，旁側峰值向外減弱；雙縫中央附近明暗交替。不直接斷言不同裝置的中央寬度大小。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "成立條件與易混淆處",
+       "rows": [
+        [
+         "",
+         "中央寬亮紋與旁側亮紋的敘述採遠場、均勻單色照明條件。「縫越窄，展開越明顯」須固定波長並限於本教材尺度，不能外推到所有縫寬與近場情況。"
+        ]
+       ],
+       "source": "01"
+      },
+      {
+       "label": "題目卡5　常見迷思與錯誤",
+       "rows": [
+        [
+         "",
+         "把單狹縫圖樣當成狹縫的放大影像；認為繞射與干涉是兩套毫無關聯的原理；只說光彎曲而未交代次波源分布與疊加。"
+        ]
+       ],
+       "source": "05"
+      }
+     ]
+    },
+    {
+     "time": "8-18分",
+     "do": "先比實拍，再比次波源分布。",
+     "ask": "問：中央與兩側亮紋有何差別？",
+     "student": "完成Q1；口頭比較\n單、雙狹縫。",
+     "evidence": "中央較寬較亮；\n兩側漸弱。",
+     "material": "單狹縫實拍\nQ1",
+     "heading": "比較雙狹縫與單狹縫的次波源分布",
+     "text": {
+      "ref": "課本第 3 節　正文第 4 段",
+      "paras": [
+       "雙狹縫以兩縫之間的光波疊加說明條紋；單狹縫則考慮同一縫內不同位置的次波疊加。兩者都運用波的疊加概念。"
+      ],
+      "target": "sec3"
+     },
+     "sim": "singleslit",
+     "images": [
+      {
+       "src": "assets/commons/c09.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Wavefronts_of_two_coherent_point_sources.png",
+       "attrib": "Zhen Lin at English Wikipedia｜Public domain（Wikimedia Commons：Wavefronts of two coherent point sources.png）",
+       "cap": "網路替代圖：兩個點波源"
+      },
+      {
+       "src": "assets/commons/c13.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Refraction_on_an_aperture_-_Huygens-Fresnel_principle.svg",
+       "attrib": "Arne Nordmann (norro)｜CC BY-SA 3.0（Wikimedia Commons：Refraction on an aperture - Huygens-Fresnel principle.svg）",
+       "cap": "網路替代圖：縫內許多次波源"
+      }
+     ],
+     "concept": [
+      {
+       "label": "核心問題（題目卡5）",
+       "text": "雙狹縫干涉與單狹縫繞射的屏幕圖樣不同，為什麼仍可以用同一個次波疊加原理解釋？",
+       "source": "05"
+      },
+      {
+       "label": "成功規準（題目卡5）",
+       "text": "達成：能同時描述主要圖樣差異、次波源分布差異與共同的疊加機制。\n發展中：能描述圖樣或次波源其中一項，但未建立兩者的因果連結。\n待支持：仍使用幾何投影解釋，或把干涉與繞射視為完全不同機制。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "常見學習困難：第3節 干涉繞射無關",
+       "rows": [
+        [
+         "學生表現",
+         "「這兩個現象的\n原理完全不同。」"
+        ],
+        [
+         "引導方式",
+         "比較雙狹縫與單狹縫模型，\n找出次波源分布與疊加關係。"
+        ],
+        [
+         "改善判準",
+         "能指出共同疊加原理\n及次波源分布的差異。"
+        ]
+       ],
+       "source": "10"
+      },
+      {
+       "label": "二　單項引導表　範例3：干涉與繞射原理無關",
+       "rows": [
+        [
+         "L1 釐清想法",
+         "你認為原理不同，\n是根據兩張圖的哪個差異？"
+        ],
+        [
+         "L2 回看證據",
+         "在兩個模型標出次波源；\n它們各自如何分布？"
+        ],
+        [
+         "L3 連結說明",
+         "根據次波源與明暗紋，\n你會如何修訂「兩者原理無關」？"
+        ]
+       ],
+       "source": "10"
+      }
+     ]
+    },
+    {
+     "time": "18-28分",
+     "do": "展示薄膜照片與剖面。",
+     "ask": "問：哪兩束反射光會重疊？",
+     "student": "Q3指出上下表面的\n反射光及干涉。",
+     "evidence": "兩路反射光正確；\n不只歸因折射。",
+     "material": "薄膜示意\nQ3",
+     "heading": "薄膜：哪兩束反射光會重疊？",
+     "text": {
+      "ref": "課本第 4 節　正文第 1、2、3 段",
+      "paras": [
+       "白光照到肥皂膜或水面油膜時，部分光在上表面反射，另一部分進入薄膜，在下表面反射後再離開。兩部分光朝同一觀察方向傳播時，可以互相干涉。",
+       "干涉結果與膜厚、折射率、觀察角度及光的波長有關，也受到反射時振動相位改變的影響。相位描述振動進行到哪個階段；折射率則反映光在介質中的傳播速度。膜厚隨位置變化時，白光中的不同波長可能在不同位置增強或減弱，因而呈現彩色分布。",
+       "牛頓環與薄空氣膜的干涉有關；抗反射鍍膜利用干涉，在設計的波長與角度範圍內降低反射。這些例子都能連回光波疊加的概念。"
+      ],
+      "target": "sec4"
+     },
+     "sim": "thinfilm",
+     "images": [
+      {
+       "src": "assets/photos/肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:%D0%98%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F_%D0%B2_%D1%82%D0%BE%D0%BD%D0%BA%D0%BE%D0%B9_%D0%BC%D1%8B%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9_%D0%BF%D0%BB%D1%91%D0%BD%D0%BA%D0%B5.jpg",
+       "credit": "Yaroslav Ulyushin｜CC BY 4.0",
+       "cap": "肥皂膜"
+      },
+      {
+       "src": "assets/commons/c14.png",
+       "link": "https://commons.wikimedia.org/wiki/File:Thin_film_interference.svg",
+       "attrib": "Nicoguaro｜CC BY 4.0（Wikimedia Commons：Thin film interference.svg）",
+       "cap": "網路替代圖：薄膜剖面"
+      },
+      {
+       "src": "assets/photos/水面油膜_gambier20_CC-BY-2.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Rainbow_Pollution.jpg",
+       "credit": "gambier20｜CC BY 2.0",
+       "cap": "水面油膜"
+      }
+     ],
+     "concept": [
+      {
+       "label": "答案要素（題目卡6）",
+       "text": "白光照膜後，一路由上表面直接反射；另一路進入薄膜，由下表面反射後穿出上表面。兩路光在觀察方向重疊干涉，使不同波長受到不同程度的增強或減弱。\n教師掌握：相位差涉及光程及反射相位變化。本題只評量兩路反射光與定性干涉，不要求膜厚或顏色計算。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "題目卡6　常見迷思與錯誤",
+       "rows": [
+        [
+         "",
+         "把顏色歸因於顏料或只歸因於折射；只記得『薄膜干涉』名詞，卻無法指出兩路反射光；要求超出本單元範圍的膜厚公式或特定顏色計算。"
+        ]
+       ],
+       "source": "05"
+      },
+      {
+       "label": "題目卡6　成功規準",
+       "rows": [
+        [
+         "",
+         "達成：能指出兩路反射光，說明它們重疊干涉並造成不同波長增強或減弱；不把顏色歸因於色素。\n發展中：能判斷為干涉，但未完整指出兩路反射光或只寫名詞。\n待支持：只以顏料或折射解釋，或無法辨認上、下界面的反射路徑。"
+        ]
+       ],
+       "source": "05"
+      },
+      {
+       "label": "條件與誤解",
+       "rows": [
+        [
+         "",
+         "只作定性說明，不算膜厚或特定顏色。光碟色彩不能一律歸為薄膜干涉；干涉與繞射支持波動行為，不能據此說明光的全部性質。"
+        ]
+       ],
+       "source": "02"
+      },
+      {
+       "label": "成立條件與易混淆處",
+       "rows": [
+        [
+         "",
+         "以透明薄膜的反射光作定性說明；不能只比較幾何路徑而忽略反射相位。「抗反射」有波長與角度範圍，不表示所有光都不反射。波動性證據也不等於否定光的粒子性。"
+        ]
+       ],
+       "source": "01"
+      }
+     ]
+    },
+    {
+     "time": "28-45分",
+     "do": "回看雙狹縫與單狹縫實拍。",
+     "ask": "問：直進模型漏掉了什麼？",
+     "student": "Q5①連結觀察、\n次波疊加與波動性。",
+     "evidence": "用兩項光學觀察\n支持波動描述。",
+     "material": "兩種屏幕圖\nQ5①",
+     "heading": "直進模型漏掉了什麼？",
+     "text": {
+      "ref": "課本第 4 節　正文第 4 段",
+      "paras": [
+       "回顧雙狹縫與單狹縫，雖然參與疊加的次波源分布不同，兩者都形成有規律的明暗分布。這些現象可由波動模型解釋，因此支持光具有波動性。"
+      ],
+      "target": "sec4"
+     },
+     "images": [
+      {
+       "src": "assets/photos/雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Subwavelength_slits.JPG",
+       "credit": "Bryan Tong Minh｜Public Domain",
+       "cap": "雙狹縫實拍"
+      },
+      {
+       "src": "assets/photos/單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg",
+       "link": "https://commons.wikimedia.org/wiki/File:Blue_laser_single_slit_diffraction_photo.jpg",
+       "credit": "Xyqorophibian｜CC BY-SA 4.0",
+       "cap": "單狹縫實拍"
+      }
+     ],
+     "concept": [
+      {
+       "label": "核心問題（題目卡7）",
+       "text": "雙狹縫干涉與單狹縫繞射如何共同支持光具有波動行為？這項結論的適用範圍是什麼？",
+       "source": "05"
+      },
+      {
+       "label": "答案要素（題目卡7）",
+       "text": "兩項觀察都需要能展開、疊加並在不同位置增強或減弱的波動描述。單純直進模型既未預測完整圖樣，也無法同時解釋亮暗交替與幾何陰影區中的展開。兩項證據共同支持光在這些情境中具有波動行為；這不等於單靠本單元已完整說明光的全部性質。",
+       "source": "05"
+      }
+     ],
+     "notes": [
+      {
+       "label": "題目卡7　常見迷思與錯誤",
+       "rows": [
+        [
+         "",
+         "只寫『因為光是波』而沒有證據與比較；把水波或模擬當成支持光的主要實證；過度宣稱波動模型已解釋光的一切，或提前延伸到本單元未處理的內容。"
+        ]
+       ],
+       "source": "05"
+      },
+      {
+       "label": "題目卡7　成功規準",
+       "rows": [
+        [
+         "",
+         "達成：能列出兩項真實光學證據、比較直進與波動模型的解釋力，並清楚寫出論證界限。\n發展中：能指出干涉或繞射其中一項支持波動性，但證據不完整、缺少模型比較或界限。\n待支持：只重述結論、使用模擬作主要證據，或作出超出本單元證據範圍的宣稱。"
+        ]
+       ],
+       "source": "05"
+      }
+     ]
+    },
+    {
+     "time": "45-50分",
+     "do": "提醒保存修訂及AI採納理由。",
+     "ask": "問：哪項證據改變你的想法？",
+     "student": "Q5②寫前後想法；\n下載完整紀錄。",
+     "evidence": "反思具體；若用AI，\n說明採納或拒絕。",
+     "material": "Q5②\n下載紀錄",
+     "heading": "反思：哪項證據改變你的想法？",
+     "concept": [
+      {
+       "label": "達成規準（學習目標 4）",
+       "text": "證據可回查、推理相連；\n說明波動模型的界限。",
+       "source": "02"
+      },
+      {
+       "label": "單元結束",
+       "text": "第3節Q5；課後另施後測。\n證據支持波動性；\n能說明模型限制。",
+       "source": "02"
+      }
+     ],
+     "notes": [
+      {
+       "label": "數位記錄",
+       "rows": [
+        [
+         "",
+         "以學生代碼作答；課末下載JSON，另可匯出CSV／HTML。教師收存回答、畫圖與操作紀錄。"
+        ]
+       ],
+       "source": "02"
+      }
+     ]
+    }
+   ],
+   "blocks": [],
+   "lesson": "t3"
   }
  ]
 }

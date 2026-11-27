@@ -106,8 +106,57 @@ PHOTOS = {  # filename (as in 07A) -> Wikimedia source page (hyperlinks in 07A)
 }
 
 
+COMMONS = {c['file']: c for c in json.load(open(os.path.join(SITE, 'assets/commons/commons.json'), encoding='utf-8'))}
+# 原文件列出但未附檔的圖 → 網路上找到的替代圖（Wikimedia Commons）
+WEB = {
+    '封面/干涉與繞射_封面主視覺.png': ['c00.jpg'],
+    '封面/封面_紙本13頁.png': ['c01.jpg'],
+    '第1節/水波干涉_3D關鍵畫面.png': ['c02.jpg', 'c15.jpg'],
+    '第1節/繩波相遇前_自製題圖.png': ['c03.png'],
+    '第1節/雙點波源AB點_自製題圖.png': ['c04.png'],
+    '惠更斯原理_示意圖解說.png': ['c13.png'],
+    '紙本教材用/惠更斯原理_關鍵畫面.png': ['c17.png'],
+    '紙本教材用/雙狹縫_亮暗條紋_BD.png': ['c07.png'],
+    '雙狹縫實驗架設_空間位置示意.svg': ['c08.jpg'],
+    '紙本教材用/雙狹縫實驗架設_空間位置示意.svg.png': ['c08.jpg'],
+    '雙狹縫次波模型_自製題圖.png': ['c09.png'],
+    '雙狹縫裝置_預測題圖.png': ['c10.png'],
+    '單狹縫實驗架設_空間位置示意.svg': ['c16.png'],
+    '紙本教材用/單狹縫實驗架設_空間位置示意.svg.png': ['c16.png'],
+    '單狹縫繞射_理想圖樣.png': ['c11.png', 'c12.png'],
+    '雙狹縫與單狹縫_次波源分布.png': ['c09.png', 'c13.png'],
+    '薄膜干涉_實拍與剖面.png': ['photo:肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg', 'c14.png'],
+    '單狹縫繞射_實拍_文件用.png': ['photo:單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg'],
+    '生活中的干涉與繞射_實拍.png': ['photo:光碟繞射_Hapecko_CC-BY-SA-4.0.jpg', 'photo:水面油膜_gambier20_CC-BY-2.0.jpg',
+                               'photo:肥皂泡薄膜干涉_Pksois23_CC-BY-SA-4.0.jpg', 'photo:孔雀羽毛_Bernard-Spragg_CC0.jpg',
+                               'photo:藍閃蝶_Alias0591_CC-BY-2.0.jpg', 'photo:望遠鏡繞射尖峰_ESA-Hubble_CC-BY-4.0.jpg'],
+}
+PHOTO_CREDIT = {}  # photo file -> 07A licence text (verbatim)
+
+
+def _collect_credits():
+    for b, r0, r1 in ((11, 1, 11), (14, 1, 11), (17, 1, 10)):
+        for r in range(r0, r1):
+            row = DOC['07A'][b][r]
+            fn = os.path.basename('\n'.join(row[1]))
+            if fn in PHOTOS:
+                PHOTO_CREDIT[fn] = '\n'.join(p for p in row[3] if p != 'Wikimedia來源頁')
+
+
+_collect_credits()
+
+
+def img_of(key):
+    if key.startswith('photo:'):
+        fn = key[6:]
+        return {'src': PHOTO_DIR + fn, 'link': PHOTOS[fn], 'credit': PHOTO_CREDIT[fn]}
+    c = COMMONS[key]
+    return {'src': 'assets/commons/' + key, 'link': c['page'],
+            'attrib': f"{c['artist']}｜{c['license']}（Wikimedia Commons：{c['title']}）"}
+
+
 def media_row(b, r):
-    """one 07A row -> media block (image when the file exists, else placeholder)"""
+    """one 07A row -> media block (07A text verbatim; image = original photo or web replacement)"""
     row = DOC['07A'][b][r]
     kind, path, use, lic = (row[0], row[1], row[2], row[3])
     path = '\n'.join(path)
@@ -116,17 +165,22 @@ def media_row(b, r):
     blk = {'t': 'media', 'kind': '\n'.join(kind), 'file': path,
            'text': '\n'.join(use), 'credit': '\n'.join(licence)}
     if fname in PHOTOS:
-        blk['src'] = PHOTO_DIR + fname
-        blk['link'] = PHOTOS[fname]
+        blk['imgs'] = [{'src': PHOTO_DIR + fname, 'link': PHOTOS[fname]}]
+    elif path in WEB:
+        blk['imgs'] = [img_of(k) for k in WEB[path]]
+        blk['web'] = True
     else:
         blk['missing'] = True
     return blk
 
 
+SIM_OF = {1: 'superposition', 2: 'ripple', 3: 'doubleslit', 4: 'thinfilm'}
+
+
 def sim_row(r):
     row = DOC['07A'][4][r]
-    return {'t': 'media', 'kind': '\n'.join(row[0]), 'file': '\n'.join(row[1]),
-            'text': '\n'.join(row[2]), 'credit': '\n'.join(row[3]), 'missing': True}
+    return {'t': 'sim', 'sim': SIM_OF[r], 'kind': '\n'.join(row[0]), 'file': '\n'.join(row[1]),
+            'text': '\n'.join(row[2])}
 
 
 DOCIMG = 'assets/docs/'
@@ -187,9 +241,12 @@ pages = []
 # ---- unit intro
 u = DOC['01'][3]
 order = DOC['01'][5]
+hero = media_row(8, 2)
+hero['source'] = '07A'
 pages.append({
     'id': 'intro', 'mode': 'book', 'nav': '單元導讀', 'title': '單元導讀　' + T('01', 3, 0, 1),
     'blocks': [
+        hero,
         kv([('適用對象', T('01', 3, 1, 1)), ('核心結論', T('01', 3, 2, 1)),
             ('先備知識', T('01', 3, 3, 1)), ('內容範圍', T('01', 3, 4, 1))], '01'),
         kv([('學習路徑', T('02', 3, 1, 1))], '02'),
@@ -198,33 +255,34 @@ pages.append({
         paras([P('01', 6)], '01'),
     ]})
 
-# ---- sections 1-4
+# ---- sections 1-4 (順序：先實拍／觀察，再模型與互動模擬)
 SEC_MEDIA = {
-    1: [], 2: [], 3: [], 4: []}
-SEC_MEDIA[1] = [('07B', 0)] + [('07A', 8, r) for r in (3, 5, 6)]
-SEC_MEDIA[2] = [('07A', 11, r) for r in (4, 2, 3, 1, 5, 6, 7, 8, 9, 10)]
-SEC_MEDIA[3] = [('07A', 14, r) for r in (9, 2, 3, 8, 1, 6)] + [('07A', 17, 9)]
-SEC_MEDIA[4] = [('07A', 17, 8)]
+    1: [('sim', 1), ('07A', 8, 5), ('07A', 8, 3), ('sim', 2), ('07A', 8, 6)],
+    2: [('07A', 11, 4), ('07A', 11, 10), ('07A', 11, 8), ('07A', 11, 1), ('07A', 11, 5), ('07A', 11, 9),
+        ('07A', 11, 6), ('sim', 3), ('07A', 11, 2), ('07A', 11, 3)],
+    3: [('07A', 14, 2), ('07A', 14, 3), ('simx', 'singleslit'), ('07A', 14, 1), ('07A', 14, 8), ('07A', 14, 6),
+        ('07A', 17, 9)],
+    4: [('07A', 17, 8), ('sim', 4)],
+}
 SEC_LIFE = {
     3: [('07A', 14, 7), ('07A', 17, 1), ('07A', 14, 4)],
     4: [('07A', 17, r) for r in (4, 5, 6)] + [('07A', 14, 5), ('07A', 17, 2),
                                              ('07A', 14, 10), ('07A', 17, 3)],
 }
-SEC_SIMS = {1: [1, 2], 2: [3], 3: [], 4: [4]}
 SEC_WS = {1: 'ws1', 2: 'ws2', 3: 'ws3', 4: 'ws3'}
 
 
 def media_blocks(spec):
     out = []
     for s in spec:
-        if s[0] == '07B':
-            out.append({'t': 'media', 'kind': '概念比較圖', 'file': T('07B', 2, 0, 1).split('\n')[0],
-                        'text': T('07B', 2, 1, 1), 'credit': P('07B', 3),
-                        'src': DOCIMG + '07B_同向反向完全重疊比較圖.png', 'source': '07B'})
+        if s[0] == 'sim':
+            blk = sim_row(s[1])
+        elif s[0] == 'simx':
+            blk = {'t': 'sim', 'sim': s[1], 'text': ''}
         else:
             blk = media_row(s[1], s[2])
-            blk['source'] = '07A'
-            out.append(blk)
+        blk['source'] = '07A'
+        out.append(blk)
     return out
 
 
@@ -234,13 +292,9 @@ for n in (1, 2, 3, 4):
         box('core', '學習重點', nd['core'], '01'),
         h('正文'), paras(nd['body'], '01'),
         box('cond', '觀念澄清', nd['cond'], '01'),
-        h('圖片與模擬'),
+        h('圖片與互動模擬'),
     ]
     blks += media_blocks(SEC_MEDIA[n])
-    for r in SEC_SIMS[n]:
-        s = sim_row(r)
-        s['source'] = '07A'
-        blks.append(s)
     if n in SEC_LIFE:
         blks.append(h('生活中的物理'))
         blks += media_blocks(SEC_LIFE[n])
@@ -358,16 +412,21 @@ ext = [
 pages.append({'id': 'ext', 'mode': 'book', 'nav': '延伸閱讀', 'title': '延伸閱讀', 'blocks': ext})
 
 # ---- credits
-cred = [paras([P('07A', 1)], '07A')]
-for b, r0, r1 in ((11, 1, 11), (14, 1, 11), (17, 1, 10)):
+cred = []
+seen = set()
+for b, r0, r1 in ((8, 1, 7), (11, 1, 11), (14, 1, 11), (17, 1, 10)):
     for r in range(r0, r1):
         m = media_row(b, r)
-        if not m.get('missing') and all(c.get('src') != m['src'] for c in cred[1:]):
-            m['source'] = '07A'
-            cred.append(m)
+        for im in m.get('imgs', []):
+            if im['src'] in seen:
+                continue
+            seen.add(im['src'])
+            cred.append({'src': im['src'], 'link': im['link'], 'file': m['file'], 'text': m['text'],
+                         'credit': im.get('credit') or (m['credit'] if not m.get('web') else ''),
+                         'attrib': im.get('attrib', '')})
 pages.append({'id': 'credits', 'mode': 'book', 'nav': '圖片來源與授權', 'title': '圖片來源與授權',
-              'blocks': [{'t': 'credits', 'items': [c for c in cred if c['t'] == 'media']},
-                         cred[0]]})
+              'blocks': [note('標示「網路替代圖」者：原文件列出該圖但未附檔，改用 Wikimedia Commons 上內容相符的開放授權圖片，作者與授權如下。'),
+                         {'t': 'credits', 'items': cred}, paras([P('07A', 1)], '07A')]})
 
 # ================================================================ TEACHER MODE
 t_unit = [
@@ -570,6 +629,155 @@ pages.append({'id': 't_08', 'mode': 'teach', 'nav': '數位教材整合規劃', 
 
 pages.append({'id': 't_exam', 'mode': 'teach', 'nav': '試題評量', 'title': '試題評量', 'blocks': [
     {'t': 'exam', 'title': '試題評量'}]})
+
+
+# ================================================================ TEACHER SLIDE DECKS
+N = {n: node(n) for n in (1, 2, 3, 4)}
+
+
+def tx(n, *idx):
+    """textbook paragraphs of section n (verbatim) with their position label"""
+    return {'ref': f'課本第 {n} 節　正文第 ' + '、'.join(str(i + 1) for i in idx) + ' 段',
+            'paras': [N[n]['body'][i] for i in idx], 'target': f'sec{n}'}
+
+
+def cpt(label, text, source):
+    return {'label': label, 'text': text, 'source': source}
+
+
+def card_field(bb, r, label=None):
+    return cpt(label or T('05', bb, r, 0).replace('\n', ''), T('05', bb, r, 1), '05')
+
+
+def img(key, cap=''):
+    if key.startswith('photo:') or key in COMMONS:
+        d = img_of(key)
+    else:
+        d = {'src': key}
+    d['cap'] = cap
+    return d
+
+
+def seg(b, r):
+    row = rows('02', b, r, r + 1)[0]
+    act = row[1].split('\n')
+    ask = [x for x in act if x.startswith('問：')]
+    do = [x for x in act if not x.startswith('問：')]
+    return {'time': row[0].replace('\n', ''), 'do': '\n'.join(do), 'ask': '\n'.join(ask),
+            'student': row[2], 'evidence': row[3], 'material': row[4]}
+
+
+def diff(r):
+    row = rows('10', 2, r, r + 1)[0]
+    return {'label': '常見學習困難：' + row[0].replace('\n', ' '), 'rows': [
+        ('學生表現', row[1]), ('引導方式', row[2]), ('改善判準', row[3])], 'source': '10'}
+
+
+def guide_notes(b):
+    t = rows('10', b, 5, 8)
+    return {'label': T('10', b, 0, 0) + '：' + T('10', b, 1, 1), 'rows': [(x[0].replace('\n', ' '), x[1]) for x in t],
+            'source': '10'}
+
+
+def ws_note(ab):
+    return {'label': '學習單 ' + DOC['03'][ab][0][1][0], 'rows': [('參考答案與判讀', T('03', ab, 3, 1)),
+                                                              ('常見錯誤與引導', T('03', ab, 4, 1))], 'source': '03'}
+
+
+def title_slide(b, r, ov_row, goals):
+    return {'kind': 'title', 'title': T('02', b, r, 1), 'time': T('02', b, r, 3),
+            'kv': [cpt('核心問題', T('02', 3, ov_row, 2), '02'), cpt('本節功能', T('02', 3, ov_row, 1), '02'),
+                   cpt(T('02', b, r + 1, 0), T('02', b, r + 1, 1), '02'),
+                   cpt(T('02', b, r + 2, 0), T('02', b, r + 2, 1), '02')] +
+                  [cpt('學習目標 ' + T('02', 2, g, 0), T('02', 2, g, 1), '02') for g in goals]}
+
+
+decks = {
+ 1: [
+  title_slide(3, 11, 4, [15, 18]),
+  dict(seg(3, 15), heading='兩個脈衝相遇', text=tx(1, 0), sim='superposition',
+       images=[img('c03.png', '網路替代圖：繩波相遇前')],
+       concept=[cpt('專業說明', T('02', 3, 19, 1), '02'), card_field(10, 4, '答案要素（題目卡1）')],
+       notes=[diff(5), guide_notes(6), {'label': '題目卡1　常見迷思與錯誤', 'rows': [('', T('05', 10, 5, 1))], 'source': '05'}]),
+  dict(seg(3, 15), heading='完全建設性干涉與完全破壞性干涉', text=tx(1, 1), sim='superposition',
+       concept=[cpt('核心理解', N[1]['core'], '01'), card_field(10, 2, '核心問題（題目卡1）')],
+       notes=[{'label': '條件與誤解', 'rows': [('', T('02', 3, 20, 1))], 'source': '02'},
+              {'label': '題目卡1　成功規準', 'rows': [('', T('05', 10, 6, 1))], 'source': '05'}]),
+  dict(seg(3, 16), heading='水波干涉：位移與振幅', text=tx(1, 2, 3), sim='ripple',
+       images=[img('c02.jpg', '網路替代圖：水波槽中的兩點波源干涉'), img('c04.png', '網路替代圖：雙點波源干涉')],
+       concept=[card_field(14, 2, '核心問題（題目卡2）'), card_field(14, 4, '答案要素（題目卡2）')],
+       notes=[diff(6), {'label': '題目卡2　常見迷思與錯誤', 'rows': [('', T('05', 14, 5, 1))], 'source': '05'},
+              {'label': '題目卡2　預期證據', 'rows': [('', T('05', 14, 3, 1))], 'source': '05'}]),
+  dict(seg(3, 17), heading='命名腹線、節線，再反思', text=tx(1, 3), sim='ripple',
+       concept=[cpt('成立條件與易混淆處', N[1]['cond'], '01'), card_field(14, 4, '答案要素（題目卡2）')],
+       notes=[{'label': '題目卡2　成功規準', 'rows': [('', T('05', 14, 6, 1))], 'source': '05'},
+              {'label': '條件與誤解', 'rows': [('', T('02', 3, 20, 1))], 'source': '02'}]),
+ ],
+ 2: [
+  title_slide(4, 1, 5, [16, 18]),
+  dict(seg(4, 5), heading='修訂水波 CER',
+       concept=[card_field(14, 4, '答案要素（題目卡2）')],
+       notes=[{'label': '題目卡2　成功規準', 'rows': [('', T('05', 14, 6, 1))], 'source': '05'}]),
+  dict(seg(4, 6), heading='先預測：屏幕上會看到什麼？',
+       images=[img('c08.jpg', '網路替代圖：雙狹縫實驗架設'), img('c10.png', '網路替代圖：直進模型的預測')],
+       reveal=img('photo:雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg', '632.8 nm紅光雙狹縫實拍'),
+       worksheet=C('03', 10, 2, 1),
+       concept=[card_field(18, 2, '核心問題（題目卡3）')],
+       notes=[ws_note(10)]),
+  dict(seg(4, 7), heading='觀察實拍，再用模擬比較', text=tx(2, 0), sim='doubleslit',
+       images=[img('photo:雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg', '632.8 nm紅光雙狹縫實拍')],
+       concept=[card_field(18, 4, '答案要素（題目卡3）'), card_field(18, 3, '預期證據（題目卡3）')],
+       notes=[ws_note(13), diff(8), {'label': '題目卡3　常見迷思與錯誤', 'rows': [('', T('05', 18, 5, 1))], 'source': '05'}]),
+  dict(seg(4, 8), heading='用惠更斯原理解釋 B 亮、D 暗', text=tx(2, 1, 2), sim='doubleslit',
+       images=[img('c13.png', '網路替代圖：惠更斯原理'), img('c09.png', '網路替代圖：兩個相干點波源的波前')],
+       concept=[cpt('專業說明', T('02', 4, 11, 1), '02'), card_field(22, 4, '答案要素（題目卡4）')],
+       notes=[ws_note(16), diff(7), guide_notes(4),
+              {'label': 'AI回應檢查例', 'rows': [r for x in rows('08', 5, 10, 12) for r in (('學生輸入', x[0]), ('可接受的引導', x[1]), ('不應出現的回覆', x[2]))], 'source': '08'}]),
+  dict(seg(4, 9), heading='比較水波與光，寫出完整解釋', text=tx(2, 3),
+       images=[img('c07.png', '網路替代圖：雙狹縫亮暗條紋')],
+       concept=[cpt('成立條件與易混淆處', N[2]['cond'], '01'), card_field(22, 6, '成功規準（題目卡4）')],
+       notes=[ws_note(19), {'label': '條件與誤解', 'rows': [('', T('02', 4, 12, 1))], 'source': '02'}]),
+ ],
+ 3: [
+  title_slide(5, 1, 6, [17, 18]),
+  dict(seg(5, 5), heading='哪句把模型當成實驗證據？',
+       images=[img('photo:雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg', '實拍'), img('c09.png', '網路替代圖：模型')],
+       concept=[card_field(18, 3, '預期證據（題目卡3）')],
+       notes=[diff(8)]),
+  dict(seg(5, 6), heading='單狹縫繞射：中央與兩側亮紋', text=tx(3, 0, 1, 2), sim='singleslit',
+       images=[img('photo:單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg', '單狹縫繞射實拍'), img('c16.png', '網路替代圖：單狹縫繞射')],
+       concept=[cpt('專業說明', T('02', 5, 11, 1), '02'), card_field(27, 4, '答案要素（題目卡5）')],
+       notes=[{'label': '成立條件與易混淆處', 'rows': [('', N[3]['cond'])], 'source': '01'},
+              {'label': '題目卡5　常見迷思與錯誤', 'rows': [('', T('05', 27, 5, 1))], 'source': '05'}]),
+  dict(seg(5, 6), heading='比較雙狹縫與單狹縫的次波源分布', text=tx(3, 3), sim='singleslit',
+       images=[img('c09.png', '網路替代圖：兩個點波源'), img('c13.png', '網路替代圖：縫內許多次波源')],
+       concept=[card_field(27, 2, '核心問題（題目卡5）'), card_field(27, 6, '成功規準（題目卡5）')],
+       notes=[diff(9), guide_notes(8)]),
+  dict(seg(5, 7), heading='薄膜：哪兩束反射光會重疊？', text=tx(4, 0, 1, 2), sim='thinfilm',
+       images=[img('photo:肥皂膜薄膜干涉_Yaroslav-Ulyushin_CC-BY-4.0.jpg', '肥皂膜'), img('c14.png', '網路替代圖：薄膜剖面'),
+               img('photo:水面油膜_gambier20_CC-BY-2.0.jpg', '水面油膜')],
+       concept=[card_field(32, 4, '答案要素（題目卡6）')],
+       notes=[{'label': '題目卡6　常見迷思與錯誤', 'rows': [('', T('05', 32, 5, 1))], 'source': '05'},
+              {'label': '題目卡6　成功規準', 'rows': [('', T('05', 32, 6, 1))], 'source': '05'},
+              {'label': '條件與誤解', 'rows': [('', T('02', 5, 12, 1))], 'source': '02'},
+              {'label': '成立條件與易混淆處', 'rows': [('', N[4]['cond'])], 'source': '01'}]),
+  dict(seg(5, 8), heading='直進模型漏掉了什麼？', text=tx(4, 3),
+       images=[img('photo:雙狹縫干涉_紅光實拍_Bryan-Tong-Minh_PD.jpg', '雙狹縫實拍'),
+               img('photo:單狹縫繞射_藍光雷射_Xyqorophibian_CC-BY-SA-4.0.jpg', '單狹縫實拍')],
+       concept=[card_field(37, 2, '核心問題（題目卡7）'), card_field(37, 4, '答案要素（題目卡7）')],
+       notes=[{'label': '題目卡7　常見迷思與錯誤', 'rows': [('', T('05', 37, 5, 1))], 'source': '05'},
+              {'label': '題目卡7　成功規準', 'rows': [('', T('05', 37, 6, 1))], 'source': '05'}]),
+  dict(seg(5, 9), heading='反思：哪項證據改變你的想法？',
+       concept=[cpt('達成規準（學習目標 4）', T('02', 2, 18, 3), '02'), cpt('單元結束', T('02', 6, 5, 1) + '\n' + T('02', 6, 5, 2), '02')],
+       notes=[{'label': '數位記錄', 'rows': [('', T('02', 6, 6, 1))], 'source': '02'}]),
+ ],
+}
+for n in (1, 2, 3):
+    pages.append({'id': f'd{n}', 'mode': 'teach', 'nav': f'第 {n} 節上課簡報', 'title': T('02', LESSON[n][0], LESSON[n][1], 1),
+                  'deck': decks[n], 'blocks': [], 'lesson': f't{n}'})
+for pg in pages:
+    if pg['id'] in ('t1', 't2', 't3'):
+        pg['nav'] = pg['nav'].replace('授課', '教案全文')
 
 out = {
     'title': '干涉與繞射',

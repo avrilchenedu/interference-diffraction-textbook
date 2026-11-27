@@ -1,0 +1,164 @@
+[
+ {
+  "replaces": "封面/干涉與繞射_封面主視覺.png",
+  "title": "Rainbow Bubbles -1 (4454715628).jpg",
+  "file": "c00.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Rainbow_Bubbles_-1_(4454715628).jpg",
+  "artist": "Domenico Salvagnin from Legnaro, Italy",
+  "license": "CC BY 2.0",
+  "desc": "Rainbow Bubbles #1"
+ },
+ {
+  "replaces": "封面/封面_紙本13頁.png",
+  "title": "Soap bubbles-jurvetson.jpg",
+  "file": "c01.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Soap_bubbles-jurvetson.jpg",
+  "artist": "Steve Jurvetson",
+  "license": "CC BY 2.0",
+  "desc": "Soap bubbles. \"Bubble Rain\". Taken on April 16, 2005."
+ },
+ {
+  "replaces": "第1節/水波干涉_3D關鍵畫面.png",
+  "title": "Two-point-interference-ripple-tank.JPG",
+  "file": "c02.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Two-point-interference-ripple-tank.JPG",
+  "artist": "The original uploader was RenamedUser2 at English Wikipedia.",
+  "license": "BSD",
+  "desc": "Photographer: Armedblowfish License: BSD Date taken: 2006, sometime during or around May Camera: Film, Nikon N65 Lens: Nikon 28-80 mm f/3.3-5.6G AF Zoom-Nikkor Film: Color, 800-speed Digitized by: CVS"
+ },
+ {
+  "replaces": "第1節/繩波相遇前_自製題圖.png",
+  "title": "Superposition-principle of wave jp.svg",
+  "file": "c03.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Superposition-principle_of_wave_jp.svg",
+  "artist": "すじにくシチュー",
+  "license": "CC0",
+  "desc": "principle of superposition, in physics of wave."
+ },
+ {
+  "replaces": "第1節/雙點波源AB點_自製題圖.png",
+  "title": "Interference-pattern-two-point-sources.svg",
+  "file": "c04.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Interference-pattern-two-point-sources.svg",
+  "artist": "MikeRun",
+  "license": "CC BY-SA 4.0",
+  "desc": "Interference pattern of two point-like wave exciters. The lines show the wave fronts of the blue and red exciters. Solid lines show wave crests, dotted lines show wave troughs. If a wave crest meets a"
+ },
+ {
+  "replaces": "惠更斯原理_示意圖解說.png",
+  "title": "Huygens-Fresnel.svg",
+  "file": "c05.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Huygens-Fresnel.svg",
+  "artist": "Jkwchui",
+  "license": "CC0",
+  "desc": "Figure relating to Huygens-Fresnel principle"
+ },
+ {
+  "replaces": "紙本教材用/惠更斯原理_關鍵畫面.png",
+  "title": "Huygens-Fresnel.jpg",
+  "file": "c06.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Huygens-Fresnel.jpg",
+  "artist": "Epzcaw",
+  "license": "CC0",
+  "desc": "Figure relating to Huygens-Fresnel principle"
+ },
+ {
+  "replaces": "紙本教材用/雙狹縫_亮暗條紋_BD.png",
+  "title": "Two-Slit Experiment Light.svg",
+  "file": "c07.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Two-Slit_Experiment_Light.svg",
+  "artist": "inductiveload",
+  "license": "Public domain",
+  "desc": "A Diagram showing the two slit experiment using a light source."
+ },
+ {
+  "replaces": "雙狹縫實驗架設_空間位置示意.svg",
+  "title": "Double Slit Experiment - Simplified Diagram.jpg",
+  "file": "c08.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Double_Slit_Experiment_-_Simplified_Diagram.jpg",
+  "artist": "Theodore Xu",
+  "license": "CC BY-SA 4.0",
+  "desc": "Double Slit Experiment - Simplified Diagram"
+ },
+ {
+  "replaces": "雙狹縫次波模型_自製題圖.png",
+  "title": "Wavefronts of two coherent point sources.png",
+  "file": "c09.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Wavefronts_of_two_coherent_point_sources.png",
+  "artist": "Zhen Lin at English Wikipedia",
+  "license": "Public domain",
+  "desc": "The wavefronts resulting from the interference of two coherent point-sources 40 wavelengths apart. Parameters, units in pixels: λ=5 d=200"
+ },
+ {
+  "replaces": "雙狹縫裝置_預測題圖.png",
+  "title": "Two-Slit Experiment Particles.svg",
+  "file": "c10.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Two-Slit_Experiment_Particles.svg",
+  "artist": "inductiveload",
+  "license": "Public domain",
+  "desc": "A Diagram showing the two slit experiment using clasical particles."
+ },
+ {
+  "replaces": "單狹縫實驗架設_空間位置示意.svg",
+  "title": "Single Slit Diffraction (english).svg",
+  "file": "c11.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Single_Slit_Diffraction_(english).svg",
+  "artist": "DL6ER",
+  "license": "CC BY-SA 4.0",
+  "desc": "Diffraction pattern of a single slit (english labels)"
+ },
+ {
+  "replaces": "單狹縫繞射_理想圖樣.png",
+  "title": "Single-slit-diffraction-graph.svg",
+  "file": "c12.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Single-slit-diffraction-graph.svg",
+  "artist": "Nmurdoch",
+  "license": "Public domain",
+  "desc": "Diffraction pattern created by a wave traveling through a single slit."
+ },
+ {
+  "replaces": "雙狹縫與單狹縫_次波源分布.png",
+  "title": "Refraction on an aperture - Huygens-Fresnel principle.svg",
+  "file": "c13.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Refraction_on_an_aperture_-_Huygens-Fresnel_principle.svg",
+  "artist": "Arne Nordmann (norro)",
+  "license": "CC BY-SA 3.0",
+  "desc": "Refraction on an aperture in the manner of Huygens. The yellow dots indicate notional origins of new waves."
+ },
+ {
+  "replaces": "薄膜干涉_實拍與剖面.png",
+  "title": "Thin film interference.svg",
+  "file": "c14.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Thin_film_interference.svg",
+  "artist": "Nicoguaro",
+  "license": "CC BY 4.0",
+  "desc": "A wave of light reflecting off the upper and lower boundaries of a thin film."
+ },
+ {
+  "replaces": "extra/two_point_panoramio",
+  "title": "Two point source interference Pattern - panoramio.jpg",
+  "file": "c15.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Two_point_source_interference_Pattern_-_panoramio.jpg",
+  "artist": "Lub0t",
+  "license": "CC BY 3.0",
+  "desc": "Two point source interference Pattern"
+ },
+ {
+  "replaces": "單狹縫實驗架設_空間位置示意.svg",
+  "title": "Single Slit Diffraction.svg",
+  "file": "c16.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Single_Slit_Diffraction.svg",
+  "artist": "jkrieger",
+  "license": "CC BY-SA 3.0",
+  "desc": "Single Slit Diffraction"
+ },
+ {
+  "replaces": "extra/diffraction_through_slit",
+  "title": "Diffraction through Slit.svg",
+  "file": "c17.png",
+  "page": "https://commons.wikimedia.org/wiki/File:Diffraction_through_Slit.svg",
+  "artist": "Inductiveload",
+  "license": "Public domain",
+  "desc": "A digram shoing the wavefronts of a planar wave diffracting through a narrow slit. It is assumed that the slit is only a few times larger than the wavelength of the wave."
+ }
+]
