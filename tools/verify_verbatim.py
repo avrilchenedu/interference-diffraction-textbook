@@ -16,7 +16,7 @@ src = json.load(open(os.path.join(SITE, 'tools', 'source_text.json'), encoding='
 content = json.load(open(os.path.join(SITE, 'content.json'), encoding='utf-8'))
 
 LABEL_KEYS = {'title', 'nav', 'label', 'head', 'note', 'source', 'src', 'link', 'target',
-              'id', 'mode', 't', 'style', 'missing', 'attrib', 'web', 'sim', 'heading', 'kind', 'cap', 'ref', 'lesson', 'time', 'worksheet', 'sources', 'subtitle'}
+              'id', 'mode', 't', 'style', 'missing', 'attrib', 'web', 'sim', 'heading', 'kind', 'cap', 'ref', 'lesson', 'time', 'links', 'imgs', 'docfiles', 'code', 'name', 'file', 'worksheet', 'sources', 'subtitle'}
 
 
 def norm(s):

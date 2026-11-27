@@ -72,10 +72,34 @@
       ${R.table({ head: b.head, rows: b.rows })}</section>`,
     shot: (b) => `<section class="shot"><img src="${esc(b.src)}" alt="分鏡草圖" loading="lazy" data-zoom>
       <dl class="kv">${b.head.map((h, i) => `<dt>${esc(h)}</dt><dd>${txt(b.cells[i])}</dd>`).join('')}</dl></section>`,
+    chapters: (b) => `<div class="chapters">${b.items.map((c) => `<a class="chap" href="${pageHref(c.target)}">
+      <span class="chap-n">${esc(c.label)}</span><b>${esc(c.name)}</b><p>${txt(c.text)}</p><span class="chap-go">開始閱讀 →</span></a>`).join('')}</div>
+      <div class="quick"><a href="${pageHref('ws2')}">📝 學習單</a><a href="${pageHref('ai')}">🤖 AI 提問守則</a><a href="${pageHref('ext')}">📚 延伸閱讀</a><a href="${pageHref('d1')}">🧑‍🏫 教師上課簡報</a></div>`,
+    doclist: (b) => `<div class="doclist">${b.items.map((d) => `<a href="${pageHref(d.target)}"><span class="code">${esc(d.code)}</span><b>${esc(d.name)}</b><small>${esc(d.file)}</small></a>`).join('')}</div>`,
+    reflist: (b) => `<dl class="kv reflist">${b.rows.map((r) => `<dt>${esc(r.label)}</dt><dd>${txt(r.text)}${
+      (r.links || []).map((u) => `<br><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//, '').slice(0, 70))} ↗</a>`).join('')}</dd>`).join('')}</dl>`,
+    docraw: (b) => `<div class="docraw">${b.items.map(rawItem).join('')}</div>`,
     credits: (b) => `<div class="tbl"><table><thead><tr><th>圖片</th><th>用途（依 07A）</th><th>作者／授權與來源</th></tr></thead><tbody>${
       b.items.map((m) => `<tr><td><img class="thumb" src="${esc(m.src)}" alt="" loading="lazy" data-zoom><br><small>${esc(m.file.split('/').pop())}</small></td><td>${txt(m.text)}</td><td>${
         m.attrib ? `<span class="tag">網路替代圖</span><br>${esc(m.attrib)}` : txt(m.credit)}<br><a href="${esc(m.link)}" target="_blank" rel="noopener">來源頁 ↗</a></td></tr>`).join('')}</tbody></table></div>`,
   };
+
+  /* 原始文件全文：段落、表格、附圖、超連結 */
+  function rawPara(it) {
+    if (it.table) return rawTable(it.table);
+    const hint = /^提示：/.test(it.text);
+    return `${it.text ? `<p class="${hint ? 'hint' : ''}">${txt(it.text)}</p>` : ''}${
+      (it.imgs || []).map((s) => `<img class="raw-img" src="${esc(s)}" alt="原文件附圖" loading="lazy" data-zoom>`).join('')}${
+      (it.links || []).length ? `<p class="raw-links">${it.links.map((u) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//, '').slice(0, 60))} ↗</a>`).join('<br>')}</p>` : ''}`;
+  }
+  function rawTable(rows) {
+    const max = Math.max(...rows.map((r) => r.length));
+    return `<div class="tbl"><table class="raw">${rows.map((r) => `<tr>${r.map((c, i) => {
+      const span = i === r.length - 1 && r.length < max ? ` colspan="${max - r.length + 1}"` : '';
+      return `<td${span}>${c.map(rawPara).join('')}</td>`;
+    }).join('')}</tr>`).join('')}</table></div>`;
+  }
+  function rawItem(it) { return it.table ? rawTable(it.table) : rawPara(it); }
 
   /* ---------------------------------------------------------------- slide deck (教師授課模式) */
   const SRCNAME = (c) => (DATA.sources[c] ? `${c} ${DATA.sources[c]}` : c);
@@ -166,7 +190,8 @@
     const items = DATA.pages.filter((p) => p.mode === mode);
     const groups = mode === 'book'
       ? [['單元', ['intro']], ['課文', ['sec1', 'sec2', 'sec3', 'sec4']], ['學習單', ['ws1', 'ws2', 'ws3']], ['AI 指引', ['ai']], ['資源', ['ext', 'credits']]]
-      : [['上課簡報', ['d1', 'd2', 'd3']], ['教案', ['t_unit', 't1', 't2', 't3']], ['評量', ['t_assess', 't_exam']], ['教師資源', ['t_diff', 't_media', 't_07b', 't_08']]];
+      : [['上課簡報', ['d1', 'd2', 'd3']], ['教案', ['t_unit', 't1', 't2', 't3']], ['評量', ['t_assess', 't_exam']], ['教師資源', ['t_diff', 't_media', 't_07b', 't_08']],
+        ['原始文件全文', ['doc_01', 'doc_02', 'doc_03', 'doc_04', 'doc_05', 'doc_06', 'doc_07A', 'doc_07B', 'doc_08', 'doc_10']]];
     $('#sidebar').innerHTML = `<div class="side-mode">${MODES[mode]}</div>` + groups.map(([g, ids]) =>
       `<div class="grp"><div class="grp-t">${g}</div>${ids.map((id) => {
         const p = items.find((x) => x.id === id);
@@ -193,7 +218,7 @@
       <h1>${esc(page.title)}</h1>
       ${page.worksheet ? '<button class="print" onclick="window.print()">列印學習單</button>' : ''}
       ${page.blocks.map((b) => (R[b.t] ? R[b.t](b, page) : '')).join('\n')}
-      ${srcs.length ? `<footer class="sources">本頁內容出處：${srcs.map((s) => `${esc(s)} ${esc(DATA.sources[s] || '')}`).join('、')}</footer>` : ''}
+      <footer class="sources">${srcs.length ? `本頁內容出處：${srcs.filter((s) => DATA.sources[s]).map((s) => `<a href="${pageHref('doc_' + s)}">${esc(s)} ${esc(DATA.sources[s])}</a>`).join('、')}　·　` : ''}<a href="${pageHref('credits')}">資料來源與授權</a></footer>
       <nav class="pager">${i > 0 ? `<a href="#/${page.mode}/${list[i - 1].id}">← ${esc(list[i - 1].nav)}</a>` : '<span></span>'}${
         i >= 0 && i < list.length - 1 ? `<a href="#/${page.mode}/${list[i + 1].id}">${esc(list[i + 1].nav)} →</a>` : '<span></span>'}</nav>
     </article>`;
@@ -248,7 +273,7 @@
   $('#menuBtn').addEventListener('click', () => document.body.classList.toggle('side-open'));
   window.addEventListener('hashchange', render);
 
-  fetch('content.json?v=2').then((r) => r.json()).then((d) => {
+  fetch('content.json?v=3').then((r) => r.json()).then((d) => {
     DATA = d;
     $('#subtitle').textContent = d.subtitle;
     render();

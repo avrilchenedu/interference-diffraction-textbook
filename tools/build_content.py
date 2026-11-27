@@ -56,8 +56,83 @@ def blocks(path):
 
 
 DOC = {}
-for f in sorted(glob.glob(os.path.join(SRC_DIR, '*.docx'))):
+for f in sorted(glob.glob(os.path.join(SRC_DIR, '[0-9][0-9]*_*.docx'))):  # only the 10 source documents (01–08, 10)
     DOC[os.path.basename(f).split('_')[0]] = blocks(f)
+assert sorted(DOC) == ['01', '02', '03', '04', '05', '06', '07A', '07B', '08', '10'], sorted(DOC)
+DOCNAME = {
+    '01': '核心教材文本開發表', '02': '單元教案與教學指引', '03': '紙本學習單開發表',
+    '04': '延伸學習資源教材公版', '05': '核心教學題目', '06': '評量雙向細目表',
+    '07A': '多模態輔助教材素材清單', '07B': '多模態輔助教材需求腳本',
+    '08': '數位教材整合規劃表', '10': '常見學習困難與引導策略'}
+
+
+# ---------------------------------------------------------------- full-document parsing (for the 原始文件 pages)
+import hashlib
+import urllib.parse
+
+R_NS = '{http://schemas.openxmlformats.org/officeDocument/2006/relationships}'
+A_BLIP = '{http://schemas.openxmlformats.org/drawingml/2006/main}blip'
+_DOCIMG_BY_MD5 = {}
+for _f in glob.glob(os.path.join(SITE, 'assets', 'docs', '*.png')):
+    _DOCIMG_BY_MD5[hashlib.md5(open(_f, 'rb').read()).hexdigest()] = 'assets/docs/' + os.path.basename(_f)
+
+
+def raw_blocks(path):
+    z = zipfile.ZipFile(path)
+    rels = ET.fromstring(z.read('word/_rels/document.xml.rels'))
+    rel = {r.get('Id'): r.get('Target') for r in rels}
+
+    def para(p):
+        item = {'text': ptext(p).strip()}
+        imgs = []
+        for el in p.iter():
+            if el.tag == A_BLIP:
+                tgt = rel.get(el.get(R_NS + 'embed'), '')
+                data = z.read('word/' + tgt) if tgt else b''
+                src = _DOCIMG_BY_MD5.get(hashlib.md5(data).hexdigest())
+                if src:
+                    imgs.append(src)
+        links = []
+        for h in p.iter(W + 'hyperlink'):
+            u = rel.get(h.get(R_NS + 'id'))
+            if not u:
+                continue
+            if u.startswith('http'):
+                links.append(u)
+            elif urllib.parse.unquote(os.path.basename(u)) in PHOTOS:  # 原文件連到本機照片 → 改連網站內同一張照片
+                links.append(PHOTO_DIR + urllib.parse.unquote(os.path.basename(u)))
+            # 其他連到作者本機資料夾的相對連結無法公開使用，不呈現為連結
+        if imgs:
+            item['imgs'] = imgs
+        if links:
+            item['links'] = links
+        return item if (item['text'] or imgs) else None
+
+    def rcell(tc):
+        out = []
+        for ch in tc:
+            if ch.tag == W + 'p':
+                it = para(ch)
+                if it:
+                    out.append(it)
+            elif ch.tag == W + 'tbl':
+                out.append({'table': rtable(ch)})
+        return out
+
+    def rtable(tbl):
+        return [[rcell(tc) for tc in tr.findall(W + 'tc')] for tr in tbl.findall(W + 'tr')]
+
+    out = []
+    for ch in ET.fromstring(z.read('word/document.xml')).find(W + 'body'):
+        if ch.tag == W + 'p':
+            it = para(ch)
+            if it:
+                out.append(it)
+        elif ch.tag == W + 'tbl':
+            out.append({'table': rtable(ch)})
+    return out
+
+
 
 
 def C(doc, b, r, c):
@@ -183,6 +258,13 @@ def sim_row(r):
             'text': '\n'.join(row[2])}
 
 
+RAW = {}
+DOCFILE = {}
+for f in sorted(glob.glob(os.path.join(SRC_DIR, '[0-9][0-9]*_*.docx'))):
+    k = os.path.basename(f).split('_')[0]
+    RAW[k] = raw_blocks(f)
+    DOCFILE[k] = os.path.basename(f)
+
 DOCIMG = 'assets/docs/'
 
 # ---------------------------------------------------------------- helpers for blocks
@@ -247,6 +329,8 @@ pages.append({
     'id': 'intro', 'mode': 'book', 'nav': '單元導讀', 'title': '單元導讀　' + T('01', 3, 0, 1),
     'blocks': [
         hero,
+        {'t': 'chapters', 'items': [{'target': f'sec{n}', 'label': f'第 {n} 節', 'name': T('01', 5, n, 1).replace('\n', ''),
+                                      'text': T('01', 5, n, 2)} for n in (1, 2, 3, 4)], 'source': '01'},
         kv([('適用對象', T('01', 3, 1, 1)), ('核心結論', T('01', 3, 2, 1)),
             ('先備知識', T('01', 3, 3, 1)), ('內容範圍', T('01', 3, 4, 1))], '01'),
         kv([('學習路徑', T('02', 3, 1, 1))], '02'),
@@ -300,7 +384,6 @@ for n in (1, 2, 3, 4):
         blks += media_blocks(SEC_LIFE[n])
     blks.append({'t': 'link', 'title': '想想看：前往學習單', 'target': SEC_WS[n]})
     blks.append({'t': 'link', 'title': 'AI 提問守則', 'target': 'ai'})
-    blks.append({'t': 'exam', 'title': '試題評量'})
     if n == 4:
         blks.append({'t': 'link', 'title': '延伸閱讀', 'target': 'ext'})
     blks.append(h('資料來源'))
@@ -424,9 +507,34 @@ for b, r0, r1 in ((8, 1, 7), (11, 1, 11), (14, 1, 11), (17, 1, 10)):
             cred.append({'src': im['src'], 'link': im['link'], 'file': m['file'], 'text': m['text'],
                          'credit': im.get('credit') or (m['credit'] if not m.get('web') else ''),
                          'attrib': im.get('attrib', '')})
-pages.append({'id': 'credits', 'mode': 'book', 'nav': '圖片來源與授權', 'title': '圖片來源與授權',
-              'blocks': [note('標示「網路替代圖」者：原文件列出該圖但未附檔，改用 Wikimedia Commons 上內容相符的開放授權圖片，作者與授權如下。'),
-                         {'t': 'credits', 'items': cred}, paras([P('07A', 1)], '07A')]})
+def raw_para_links(doc, text_prefix):
+    for it in RAW[doc]:
+        if isinstance(it, dict) and it.get('text', '').startswith(text_prefix):
+            return it['text'], it.get('links', [])
+    return '', []
+
+
+ref_rows = []
+for n in (1, 2, 3, 4):
+    nd = node(n)
+    ref_rows.append({'label': f'第 {n} 節', 'text': '\n'.join(nd['ref']), 'links': [nd['ref_link']]})
+f08, l08 = raw_para_links('08', '格式參考')
+f10, l10 = raw_para_links('10', '設計參考')
+pages.append({'id': 'credits', 'mode': 'book', 'nav': '資料來源與授權', 'title': '資料來源與授權', 'blocks': [
+    h('原始文件'),
+    note('本網站所有教學文字皆逐字取自以下 10 份原始文件；點選可查看各文件的完整內容。'),
+    {'t': 'doclist', 'items': [{'code': k, 'name': DOCNAME[k], 'file': DOCFILE[k], 'target': 'doc_' + k} for k in DOCNAME]},
+    h('課文查核依據（依 01）'),
+    {'t': 'reflist', 'rows': ref_rows, 'source': '01'},
+    h('延伸閱讀資源（依 04）'),
+    {'t': 'reflist', 'rows': [{'label': r['cells'][1], 'text': r['cells'][2] + '\n' + r['cells'][3], 'links': ([r['link'], r['link'].replace('3-introduction', '4-introduction')] if 'openstax' in (r['link'] or '') else [r['link']] if r['link'] else [])} for r in ext_rows(4, 7) + ext_rows(9, 11)], 'source': '04'},
+    h('設計與格式參考（依 08、10）'),
+    {'t': 'reflist', 'rows': [{'label': '08', 'text': f08, 'links': l08}, {'label': '10', 'text': f10, 'links': l10}]},
+    h('互動模擬'),
+    note('波的疊加、水波干涉、雙狹縫干涉、單狹縫繞射、薄膜干涉等 5 個互動模擬由本網站自行製作（HTML Canvas）。07A 所列原模擬檔未附；「波的疊加」依 07B 模擬需求腳本的參數與操作規格製作。模擬畫面為理想模型，不是實驗實拍。'),
+    h('圖片'),
+    note('照片與圖片的作者、授權與來源頁如下。標示「網路替代圖」者：原文件列出該圖但未附檔，改用 Wikimedia Commons 上內容相符的開放授權圖片。07B、08 的附圖為原文件內附的示意圖（本教材自製）。'),
+    {'t': 'credits', 'items': cred}, paras([P('07A', 1)], '07A')]})
 
 # ================================================================ TEACHER MODE
 t_unit = [
@@ -528,7 +636,7 @@ for n in (1, 2, 3):
 pages.append({'id': 't_assess', 'mode': 'teach', 'nav': '評量與學習記錄', 'title': T('02', 6, 0, 0)[2:], 'blocks': [
     table(rows('02', 6, 1, 2)[0], rows('02', 6, 2, 6), '02'),
     kv([(T('02', 6, 6, 0), T('02', 6, 6, 1))], '02'),
-    {'t': 'exam', 'title': '試題評量'},
+    {'t': 'link', 'title': '試題評量（雙向細目表）', 'target': 't_exam'},
     h(T('02', 6, 7, 0)[2:]),
     table(rows('02', 6, 8, 9)[0], rows('02', 6, 9, 13), '02'),
     kv([(T('02', 6, 13, 0), T('02', 6, 13, 1))], '02'),
@@ -627,8 +735,10 @@ p08 = [
 ]
 pages.append({'id': 't_08', 'mode': 'teach', 'nav': '數位教材整合規劃', 'title': P('08', 0), 'blocks': p08})
 
-pages.append({'id': 't_exam', 'mode': 'teach', 'nav': '試題評量', 'title': '試題評量', 'blocks': [
-    {'t': 'exam', 'title': '試題評量'}]})
+EXAM_RAW = []
+pages.append({'id': 't_exam', 'mode': 'teach', 'nav': '試題評量', 'title': '試題評量　雙向細目表', 'blocks': [
+    note('以下為 06 評量雙向細目表的完整內容（前測、隨堂測驗第3節、後測）。各測驗的題目本身不在 10 份原始文件中，將另行提供。'),
+    {'t': 'docraw', 'items': RAW['06'], 'source': '06'}]})
 
 
 # ================================================================ TEACHER SLIDE DECKS
@@ -779,14 +889,18 @@ for pg in pages:
     if pg['id'] in ('t1', 't2', 't3'):
         pg['nav'] = pg['nav'].replace('授課', '教案全文')
 
+
+# ================================================================ 原始文件全文（10 份文件完整呈現）
+for k in ['01', '02', '03', '04', '05', '06', '07A', '07B', '08', '10']:
+    pages.append({'id': 'doc_' + k, 'mode': 'teach', 'nav': k + '　' + DOCNAME[k], 'title': k + '　' + DOCNAME[k],
+                  'blocks': [note('本頁完整呈現原始文件「' + DOCFILE[k] + '」的全部內容（含表格與附圖）；灰色斜體為原文件中的填寫提示。'),
+                             {'t': 'docraw', 'items': RAW[k], 'source': k}]})
+
 out = {
     'title': '干涉與繞射',
+    'docfiles': DOCFILE,
     'subtitle': T('01', 3, 1, 1).split('；')[0],
-    'sources': {
-        '01': '核心教材文本開發表', '02': '單元教案與教學指引', '03': '紙本學習單開發表',
-        '04': '延伸學習資源教材公版', '05': '核心教學題目', '06': '評量雙向細目表',
-        '07A': '多模態輔助教材素材清單', '07B': '多模態輔助教材需求腳本',
-        '08': '數位教材整合規劃表', '10': '常見學習困難與引導策略'},
+    'sources': DOCNAME,
     'pages': pages,
 }
 json.dump(out, open(os.path.join(SITE, 'content.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
